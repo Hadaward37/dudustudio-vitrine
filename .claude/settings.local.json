@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/c/Users/dudut/OneDrive/Área de Trabalho/dudustudio/demos/landing/doceria\")",
+      "Bash(mkdir -p \"/c/Users/dudut/OneDrive/Área de Trabalho/dudustudio/demos/landing/petshop\")",
+      "Bash(mkdir -p \"/c/Users/dudut/OneDrive/Área de Trabalho/dudustudio/demos/sites\")",
+      "Bash(cp -r \"/c/Users/dudut/OneDrive/Área de Trabalho/landpages/doceria/.\" \"/c/Users/dudut/OneDrive/Área de Trabalho/dudustudio/demos/landing/doceria/\")",
+      "Bash(cp -r \"/c/Users/dudut/OneDrive/Área de Trabalho/landpages/petshop/.\" \"/c/Users/dudut/OneDrive/Área de Trabalho/dudustudio/demos/landing/petshop/\")",
+      "Bash(gh auth *)",
+      "Bash(vercel --version)"
+    ]
+  }
+}

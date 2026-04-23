@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetShop – Banho, Tosa e Cuidados com Carinho</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== PATINHAS ANIMADAS ===== -->
+  <div class="paws-container" aria-hidden="true" id="pawsContainer"></div>
+
+  <!-- ===== BOTÃO WHATSAPP FLUTUANTE ===== -->
+  <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20para%20meu%20pet%20🐾"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Agendar pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">PetShop<strong>Feliz</strong></span>
+      </div>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20para%20meu%20pet%20🐾"
+         class="btn btn-header"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> Agendar
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span>🐶 Pet Shop de Confiança</span>
+        </div>
+        <h1 class="hero-title">
+          Banho e tosa com <span class="highlight">carinho</span> e
+          entrega rápida para seu pet
+        </h1>
+        <p class="hero-subtitle">
+          Atendimento rápido, cuidado profissional e produtos de qualidade
+          para seu melhor amigo
+        </p>
+        <div class="hero-cta">
+          <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20para%20meu%20pet%20🐾"
+             class="btn btn-primary btn-xl"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+            Agendar pelo WhatsApp
+          </a>
+          <p class="microcopy">
+            <i class="fas fa-bolt"></i> Resposta rápida &nbsp;•&nbsp;
+            <i class="fas fa-calendar-check"></i> Vagas limitadas por dia
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>+200</strong>
+            <span>Pets atendidos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>5⭐</strong>
+            <span>Avaliação média</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Satisfação</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-image-blob">
+          <img
+            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80&auto=format&fit=crop"
+            alt="Cachorro feliz após banho e tosa"
+            class="hero-img"
+            loading="eager"
+          />
+          <div class="floating-badge badge-top">
+            <i class="fas fa-star text-yellow"></i> Nota 5.0
+          </div>
+          <div class="floating-badge badge-bottom">
+            <span>🐾</span> +200 pets felizes
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">O que oferecemos</p>
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-desc">Tudo que seu pet precisa em um só lugar, com amor e profissionalismo</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Card 1: Banho e Tosa -->
+        <article class="service-card card-featured">
+          <div class="card-icon-wrap" style="background: var(--blue-light);">
+            <span class="card-emoji">🛁</span>
+          </div>
+          <div class="card-badge-popular">⭐ Mais pedido</div>
+          <h3>Banho e Tosa</h3>
+          <p>Cuidado completo com higiene e carinho para seu pet ficar lindinho</p>
+          <div class="card-price">
+            <span class="from">A partir de</span>
+            <strong>R$ 45</strong>
+          </div>
+          <a href="https://wa.me/5511999999999?text=Quero%20agendar%20Banho%20e%20Tosa%20🛁"
+             class="btn btn-primary"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Agendar agora
+          </a>
+        </article>
+
+        <!-- Card 2: Tosa Higiênica -->
+        <article class="service-card">
+          <div class="card-icon-wrap" style="background: var(--green-light);">
+            <span class="card-emoji">✂️</span>
+          </div>
+          <h3>Tosa Higiênica</h3>
+          <p>Mais conforto e bem-estar para seu pet no dia a dia</p>
+          <div class="card-price">
+            <span class="from">A partir de</span>
+            <strong>R$ 30</strong>
+          </div>
+          <a href="https://wa.me/5511999999999?text=Quero%20agendar%20Tosa%20Higiênica%20✂️"
+             class="btn btn-outline"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Agendar agora
+          </a>
+        </article>
+
+        <!-- Card 3: Ração Premium -->
+        <article class="service-card">
+          <div class="card-icon-wrap" style="background: var(--orange-light);">
+            <span class="card-emoji">🍖</span>
+          </div>
+          <h3>Ração Premium</h3>
+          <p>Alimentação saudável e balanceada para uma vida longa e feliz</p>
+          <div class="card-price">
+            <span class="from">Diversas marcas</span>
+            <strong>Premium</strong>
+          </div>
+          <a href="https://wa.me/5511999999999?text=Quero%20pedir%20Ração%20Premium%20🍖"
+             class="btn btn-outline"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Pedir agora
+          </a>
+        </article>
+
+        <!-- Card 4: Acessórios Pet -->
+        <article class="service-card">
+          <div class="card-icon-wrap" style="background: var(--yellow-light);">
+            <span class="card-emoji">🎾</span>
+          </div>
+          <h3>Acessórios Pet</h3>
+          <p>Coleiras, brinquedos e muito mais para deixar seu pet feliz</p>
+          <div class="card-price">
+            <span class="from">Ampla variedade</span>
+            <strong>Ver produtos</strong>
+          </div>
+          <a href="https://wa.me/5511999999999?text=Quero%20ver%20Acessórios%20Pet%20🎾"
+             class="btn btn-outline"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> Consultar
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROVA SOCIAL ===== -->
+  <section class="social-proof" id="depoimentos">
+    <div class="container">
+      <div class="proof-counter">
+        <div class="counter-icon">🐾</div>
+        <div class="counter-text">
+          <strong class="counter-number">+200</strong>
+          <span>pets atendidos com carinho e dedicação</span>
+        </div>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <blockquote>
+            "Levei meu cachorro e fui muito bem atendida, serviço impecável!
+            Ele voltou limpinho, cheiroso e super feliz. Recomendo demais!"
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img
+                src="https://ui-avatars.com/api/?name=Ana+Silva&background=4ECDC4&color=fff&size=48"
+                alt="Ana Silva"
+              />
+            </div>
+            <div class="author-info">
+              <strong>Ana Silva</strong>
+              <span>Tutora do Bob 🐕</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <blockquote>
+            "Equipe super atenciosa e carinhosa com os pets.
+            Minha gata ficou muito bem tratada. Já virou rotina aqui!"
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img
+                src="https://ui-avatars.com/api/?name=Carlos+M&background=FF6B6B&color=fff&size=48"
+                alt="Carlos M."
+              />
+            </div>
+            <div class="author-info">
+              <strong>Carlos M.</strong>
+              <span>Tutor da Mimi 🐈</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== URGÊNCIA ===== -->
+  <section class="urgency" id="agenda">
+    <div class="container">
+      <div class="urgency-card">
+        <div class="urgency-icon">🔥</div>
+        <h2 class="urgency-title">Agenda de hoje quase completa!</h2>
+        <p class="urgency-sub">
+          Atendemos poucos pets por dia para garantir qualidade no serviço
+        </p>
+        <div class="slots-indicator">
+          <div class="slots-label">
+            <span>Vagas de hoje</span>
+            <span class="slots-remaining">2 restantes</span>
+          </div>
+          <div class="slots-bar">
+            <div class="slots-filled" style="width: 80%"></div>
+          </div>
+          <div class="slots-detail">
+            <span class="dot dot-filled"></span> 8 de 10 vagas preenchidas
+          </div>
+        </div>
+        <a href="https://wa.me/5511999999999?text=Quero%20garantir%20minha%20vaga%20hoje!%20🐾"
+           class="btn btn-primary btn-xl"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+          Garantir minha vaga agora
+        </a>
+        <p class="urgency-microcopy">
+          <i class="fas fa-lock"></i> Resposta em menos de 5 minutos
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <div class="cta-content">
+        <div class="cta-paw-decor" aria-hidden="true">🐾</div>
+        <h2 class="cta-title">Seu pet merece esse cuidado</h2>
+        <p class="cta-subtitle">
+          Agende agora pelo WhatsApp e garanta o melhor para o seu melhor amigo
+        </p>
+        <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20agendar%20para%20meu%20pet%20🐾"
+           class="btn btn-primary btn-xl btn-cta-final"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+          Agendar agora no WhatsApp
+        </a>
+        <p class="microcopy microcopy-light">
+          <i class="fas fa-check-circle"></i> Sem compromisso &nbsp;•&nbsp;
+          <i class="fas fa-bolt"></i> Atendimento imediato
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">PetShop<strong>Feliz</strong></span>
+      </div>
+      <p class="footer-copy">© 2026 PetShopFeliz · Feito com ❤️ para os pets</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- ═══ BANNER DE DEMO ═══ -->
+  <div id="demo-banner" style="
+    position:fixed; bottom:0; left:0; right:0; z-index:99999;
+    background:rgba(5,5,8,0.95);
+    backdrop-filter:blur(12px);
+    border-top:1px solid rgba(37,99,235,0.3);
+    padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-family:sans-serif;
+  ">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="
+        background:rgba(37,99,235,0.15);
+        border:1px solid rgba(37,99,235,0.4);
+        color:#60A5FA; font-size:11px;
+        padding:3px 10px; border-radius:999px;
+        letter-spacing:2px; font-weight:600;
+      ">DEMO</span>
+      <span style="color:rgba(255,255,255,0.6);font-size:13px;">
+        Você está vendo uma demonstração gratuita
+      </span>
+    </div>
+    <a href="../../index.html#landing-pages" style="
+      background:linear-gradient(135deg,#2563EB,#0EA5E9);
+      color:#fff; font-size:13px; font-weight:700;
+      padding:10px 20px; border-radius:8px;
+      text-decoration:none; white-space:nowrap;
+    ">
+      Quero esse site →
+    </a>
+  </div>
+</body>
+</html>
