@@ -712,6 +712,61 @@ if (window.innerWidth <= 768) {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════════════════════════ */
+const progressBar = document.createElement('div');
+progressBar.id = 'scroll-progress';
+document.body.prepend(progressBar);
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = progress + '%';
+}, { passive: true });
+
+/* ═══════════════════════════════════════════════════════════
+   FAQ DETAILS — icon rotation on toggle
+═══════════════════════════════════════════════════════════ */
+document.querySelectorAll('details').forEach(detail => {
+  detail.addEventListener('toggle', () => {
+    const span = detail.querySelector('summary span');
+    if (span) {
+      span.style.transform = detail.open ? 'rotate(45deg)' : 'rotate(0deg)';
+    }
+  });
+});
+
+/* ═══════════════════════════════════════════════════════════
+   NÚMEROS DECORATIVOS nas seções (estilo editorial)
+═══════════════════════════════════════════════════════════ */
+const sectionNumbers = [
+  { id: 'sobre',         num: '01' },
+  { id: 'como-funciona', num: '02' },
+  { id: 'landing-pages', num: '03' },
+  { id: 'sites',         num: '04' },
+  { id: 'diferenciais',  num: '05' },
+  { id: 'depoimentos',   num: '06' },
+];
+
+sectionNumbers.forEach(({ id, num }) => {
+  const section = document.getElementById(id);
+  if (section) {
+    const numEl = document.createElement('div');
+    numEl.className = 'section-number';
+    numEl.textContent = num;
+    section.appendChild(numEl);
+  }
+});
+
+/* ═══════════════════════════════════════════════════════════
+   TEXTO GRADIENTE ANIMADO nos elementos .text-gold
+═══════════════════════════════════════════════════════════ */
+document.querySelectorAll('.text-gold').forEach(el => {
+  el.classList.add('text-gradient-animated');
+});
+
+/* ═══════════════════════════════════════════════════════════
    INIT LOG
 ═══════════════════════════════════════════════════════════ */
 console.log('%c DuduStudio 🚀 ', 'background:#d6b36a;color:#0a0a0a;font-size:14px;font-weight:800;padding:6px 12px;border-radius:4px;');

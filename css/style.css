@@ -1930,3 +1930,139 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .hsb-item         { min-width: 45%; }
   .hero-proof       { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   GODLY STYLE DETAILS
+═══════════════════════════════════════════════════════════ */
+
+/* Seleção de texto dourada e suave */
+::selection {
+  background: rgba(214,179,106,.25);
+  color: #fff;
+}
+
+/* Shimmer animado nos cards ao hover */
+.site-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(214,179,106,.15) 50%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-card:hover::after {
+  opacity: 1;
+  animation: shimmerCard 2s linear infinite;
+}
+
+@keyframes shimmerCard {
+  0%   { background-position: -200% -200%; }
+  100% { background-position:  200%  200%; }
+}
+
+/* Número decorativo editorial nas seções */
+.section-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  font-weight: 700;
+  color: rgba(214,179,106,.04);
+  position: absolute;
+  top: -20px;
+  right: 24px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -.05em;
+}
+
+/* Linha dourada no topo das seções */
+.section-dark,
+.section-vitrine {
+  position: relative;
+}
+
+.section-dark::before,
+.section-vitrine::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(214,179,106,.15) 30%,
+    rgba(214,179,106,.3) 50%,
+    rgba(214,179,106,.15) 70%,
+    transparent 100%
+  );
+}
+
+/* FAQ details — ícone rotaciona ao abrir */
+details summary span {
+  display: inline-block;
+  transition: transform .3s ease;
+}
+
+details[open] summary span {
+  transform: rotate(45deg);
+}
+
+/* Texto com gradiente animado */
+.text-gradient-animated {
+  background: linear-gradient(
+    135deg,
+    #d6b36a 0%,
+    #f2d798 25%,
+    #d6b36a 50%,
+    #f2d798 75%,
+    #d6b36a 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glow suave nos botões gold */
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 52px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity .4s;
+  z-index: -1;
+}
+
+.btn-gold:hover::before { opacity: .4; }
+
+/* Scroll progress bar no topo */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 9999;
+  transition: width .1s linear;
+  box-shadow: 0 0 8px rgba(214,179,106,.5);
+  pointer-events: none;
+}
