@@ -893,6 +893,114 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* ═══════════════════════════════════════════════════════════
    DIFERENCIAIS
 ═══════════════════════════════════════════════════════════ */
+/* ── Sites Completos — comparativo visual ── */
+.sites-compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin-bottom: 40px;
+}
+.sites-compare-col {
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+.sites-compare-col--full {
+  border-color: rgba(214,179,106,.25);
+  background: linear-gradient(135deg,rgba(214,179,106,.06),rgba(214,179,106,.02));
+}
+.sites-compare-label {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+.sites-compare-pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.scp-page {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .78rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--gray);
+}
+.scp-page--active {
+  border-color: rgba(255,255,255,.15);
+  color: #fff;
+}
+.scp-page--gold {
+  background: rgba(214,179,106,.1);
+  border-color: rgba(214,179,106,.2);
+  color: var(--gold);
+}
+.sites-compare-desc {
+  font-size: .85rem;
+  color: var(--gray);
+  line-height: 1.7;
+  flex: 1;
+}
+.sites-compare-price {
+  font-size: .85rem;
+  color: var(--gray);
+  margin-top: 16px;
+}
+.sites-compare-price strong { color: var(--gold); font-size: 1.1rem; }
+.sites-compare-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--gray);
+  letter-spacing: .06em;
+}
+
+.sites-coming-soon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--card-bg);
+  border: 1px dashed rgba(214,179,106,.25);
+  border-radius: 16px;
+  padding: 28px 32px;
+  flex-wrap: wrap;
+}
+.scs-badge {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--gold);
+  background: rgba(214,179,106,.1);
+  border: 1px solid rgba(214,179,106,.2);
+  border-radius: 50px;
+  padding: 4px 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.scs-text {
+  flex: 1;
+  font-size: .88rem;
+  color: var(--gray);
+  line-height: 1.6;
+  min-width: 200px;
+}
+
+/* ── Diferenciais ── */
 .diff-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -903,13 +1011,26 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: var(--bg-main);
   border: 1px solid rgba(255,255,255,.06);
   border-radius: var(--radius);
-  padding: 36px 28px;
+  padding: 32px 28px;
   transition: var(--transition);
 }
 .diff-card:hover {
   border-color: var(--border);
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(214,179,106,.1);
+}
+.diff-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.diff-stat {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -.01em;
 }
 .diff-icon {
   width: 52px; height: 52px;
@@ -921,7 +1042,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   justify-content: center;
   font-size: 1.3rem;
   color: var(--gold);
-  margin-bottom: 20px;
   transition: var(--transition);
 }
 .diff-card:hover .diff-icon {
@@ -930,7 +1050,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-color: transparent;
 }
 .diff-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
-.diff-card p { font-size: .88rem; color: var(--gray); line-height: 1.65; }
+.diff-card p { font-size: .88rem; color: var(--gray); line-height: 1.7; }
 
 /* ═══════════════════════════════════════════════════════════
    DEPOIMENTOS
@@ -1474,6 +1594,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-bar { flex-wrap: wrap; padding: 24px; }
   .stats-item { min-width: 45%; border-right: none; padding: 12px; }
+  .sites-compare { grid-template-columns: 1fr; }
+  .sites-compare-vs { padding: 12px 0; }
+  .sites-coming-soon { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 
 @media (max-width: 768px) {

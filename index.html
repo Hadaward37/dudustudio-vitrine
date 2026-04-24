@@ -682,32 +682,46 @@
         <p class="reveal-up" style="color:var(--gold);font-size:1.2rem;font-weight:700;margin-top:6px;">A partir de R$ 2.800</p>
       </div>
 
-      <div style="background:var(--card-bg);border:1px solid rgba(214,179,106,.15);border-radius:16px;padding:28px 32px;margin-bottom:40px;display:flex;gap:32px;align-items:center;flex-wrap:wrap;" class="reveal-up">
-        <div style="flex:1;min-width:200px;">
-          <div style="font-size:.72rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Diferença</div>
-          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px;">Landing Page vs Site Completo</h3>
-          <p style="font-size:.85rem;color:var(--gray);line-height:1.7;">
-            <strong style="color:#fff;">Landing Page</strong> = 1 página focada em vender um produto ou serviço.<br/>
-            <strong style="color:#fff;">Site Completo</strong> = várias páginas, blog, galeria. Para empresas que querem crescer.
-          </p>
+      <!-- LP vs Site Completo — comparativo visual -->
+      <div class="sites-compare reveal-up">
+        <div class="sites-compare-col sites-compare-col--lp">
+          <div class="sites-compare-label">📄 Landing Page</div>
+          <div class="sites-compare-pages">
+            <div class="scp-page scp-page--active">
+              <i class="fas fa-home"></i> Página única
+            </div>
+          </div>
+          <p class="sites-compare-desc">1 página focada em converter. Ideal para divulgar um serviço ou produto específico.</p>
+          <div class="sites-compare-price">A partir de <strong>R$ 1.200</strong></div>
+          <a href="#landing-pages" class="btn btn-outline btn-sm" style="margin-top:16px;">Ver demos →</a>
         </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="#landing-pages" class="btn btn-outline btn-sm">Ver Landing Pages</a>
-          <a href="https://wa.me/5511999999999?text=Quero%20um%20site%20completo!" target="_blank" class="btn btn-gold btn-sm">
-            <i class="fab fa-whatsapp"></i> Falar sobre sites
+
+        <div class="sites-compare-vs">VS</div>
+
+        <div class="sites-compare-col sites-compare-col--full">
+          <div class="sites-compare-label" style="color:var(--gold);">🌐 Site Completo</div>
+          <div class="sites-compare-pages">
+            <div class="scp-page scp-page--gold"><i class="fas fa-home"></i> Home</div>
+            <div class="scp-page scp-page--gold"><i class="fas fa-user"></i> Sobre</div>
+            <div class="scp-page scp-page--gold"><i class="fas fa-pen"></i> Blog</div>
+            <div class="scp-page scp-page--gold"><i class="fas fa-images"></i> Galeria</div>
+            <div class="scp-page scp-page--gold"><i class="fas fa-envelope"></i> Contato</div>
+          </div>
+          <p class="sites-compare-desc">Até 5 páginas com blog, galeria e formulário. Para negócios que querem crescer de verdade.</p>
+          <div class="sites-compare-price">A partir de <strong>R$ 2.800</strong></div>
+          <a href="https://wa.me/5511999999999?text=Quero%20um%20site%20completo!" target="_blank" class="btn btn-gold btn-sm" style="margin-top:16px;">
+            <i class="fab fa-whatsapp"></i> Quero esse
           </a>
         </div>
       </div>
 
-      <div style="max-width:480px;margin:0 auto;" class="reveal-up">
-        <div class="diff-card" style="text-align:center;padding:48px 32px;">
-          <div style="font-size:3rem;margin-bottom:16px;">🚧</div>
-          <h3 style="margin-bottom:12px;">Em breve novos demos</h3>
-          <p style="color:var(--gray);margin-bottom:28px;">Cadastre seu interesse e te avisamos quando lançar o primeiro demo de site completo.</p>
-          <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20nos%20sites%20completos%20do%20DuduStudio.%20Me%20avisa%20quando%20tiver%20demo%20disponível!" target="_blank" class="btn btn-gold btn-lg">
-            <i class="fab fa-whatsapp"></i> Me avise
-          </a>
-        </div>
+      <!-- Em breve — CTA -->
+      <div class="sites-coming-soon reveal-up">
+        <div class="scs-badge">🚧 Em breve</div>
+        <p class="scs-text">Demos de sites completos chegando em breve. Cadastre seu interesse e te avisamos no lançamento.</p>
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20nos%20sites%20completos%20do%20DuduStudio.%20Me%20avisa%20quando%20tiver%20demo%20disponível!" target="_blank" class="btn btn-gold">
+          <i class="fab fa-whatsapp"></i> Me avise no lançamento
+        </a>
       </div>
     </div>
   </section>
@@ -1174,34 +1188,52 @@
 
       <div class="diff-grid">
         <div class="diff-card reveal-up">
-          <div class="diff-icon"><i class="fas fa-bolt"></i></div>
+          <div class="diff-card-top">
+            <div class="diff-icon"><i class="fas fa-bolt"></i></div>
+            <div class="diff-stat">7 dias</div>
+          </div>
           <h3>Entrega rápida</h3>
-          <p>Seu site pronto em até 3 dias úteis após o envio dos dados. Zero enrolação.</p>
+          <p>Do briefing ao site no ar em até 7 dias úteis. Você aprova o layout antes de publicar — sem surpresas no prazo.</p>
         </div>
         <div class="diff-card reveal-up" style="transition-delay:.1s">
-          <div class="diff-icon"><i class="fas fa-dollar-sign"></i></div>
+          <div class="diff-card-top">
+            <div class="diff-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="diff-stat">R$ 1.200</div>
+          </div>
           <h3>Preço acessível</h3>
-          <p>Sites profissionais a partir de R$497. Qualidade premium sem custar uma fortuna.</p>
+          <p>Landing pages a partir de R$ 1.200, sites completos a partir de R$ 2.800. Preço fixo, sem cobranças surpresa.</p>
         </div>
         <div class="diff-card reveal-up" style="transition-delay:.2s">
-          <div class="diff-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="diff-card-top">
+            <div class="diff-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="diff-stat">+clientes</div>
+          </div>
           <h3>Foco em vendas</h3>
-          <p>Cada modelo é estrategicamente construído para converter visitantes em clientes.</p>
+          <p>Cada modelo é construído para converter visitantes em clientes — CTAs estratégicos, estrutura de copy e WhatsApp integrado.</p>
+        </div>
+        <div class="diff-card reveal-up" style="transition-delay:.1s">
+          <div class="diff-card-top">
+            <div class="diff-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div class="diff-stat">100% mobile</div>
+          </div>
+          <h3>100% responsivo</h3>
+          <p>Feito primeiro para celular. Funciona perfeitamente em qualquer dispositivo — seu cliente acessa de onde estiver.</p>
+        </div>
+        <div class="diff-card reveal-up" style="transition-delay:.2s">
+          <div class="diff-card-top">
+            <div class="diff-icon"><i class="fas fa-headset"></i></div>
+            <div class="diff-stat">2h resposta</div>
+          </div>
+          <h3>Suporte incluso</h3>
+          <p>Suporte direto pelo WhatsApp incluso em todos os planos. Dúvida ou ajuste? Respondemos em até 2 horas.</p>
         </div>
         <div class="diff-card reveal-up" style="transition-delay:.3s">
-          <div class="diff-icon"><i class="fas fa-mobile-alt"></i></div>
-          <h3>100% responsivo</h3>
-          <p>Funciona perfeitamente em celulares, tablets e computadores. Seu cliente acessa de qualquer lugar.</p>
-        </div>
-        <div class="diff-card reveal-up" style="transition-delay:.1s">
-          <div class="diff-icon"><i class="fas fa-headset"></i></div>
-          <h3>Suporte incluso</h3>
-          <p>Atendemos pelo WhatsApp com agilidade. Você nunca fica sem suporte.</p>
-        </div>
-        <div class="diff-card reveal-up" style="transition-delay:.2s">
-          <div class="diff-icon"><i class="fas fa-search"></i></div>
+          <div class="diff-card-top">
+            <div class="diff-icon"><i class="fas fa-search"></i></div>
+            <div class="diff-stat">SEO grátis</div>
+          </div>
           <h3>SEO otimizado</h3>
-          <p>Sites pensados para aparecer no Google e trazer clientes organicamente.</p>
+          <p>Títulos, meta tags e estrutura configurados para o Google. Seu site indexado e pronto para aparecer nas buscas.</p>
         </div>
       </div>
 
