@@ -16,6 +16,7 @@ const DuduShield = (function() {
       '127.0.0.1',
       'dudustudio.com.br',
       'www.dudustudio.com.br',
+      'dudustudio-vitrine.vercel.app',
     ],
     maxAttempts: 5,
     blockDuration: 300000, // 5 minutos

@@ -3,10 +3,21 @@
 Thumbs.db
 
 .vercel
+.vercel/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+*.env
 
 # Admin — credenciais e env
 admin/credentials.json
 admin/.env
+admin/dashboard.html
+
+# Dependências
+node_modules/
 
 # Logs locais
 *.log

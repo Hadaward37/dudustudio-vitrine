@@ -909,6 +909,12 @@ window.addEventListener('hashchange', function() {
       '</div>';
   }).join('');
 
+  function _esc(s) {
+    return String(s || '')
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#x27;');
+  }
+
   var logRows = logs.map(function(l) {
     var borderColor = l.event.includes('rate') ? '#ff4444' :
       l.event.includes('xss') ? '#ff0000' :
@@ -917,11 +923,11 @@ window.addEventListener('hashchange', function() {
     return '<div style="background:#0f0f0f;border:1px solid #1a1a1a;border-left:3px solid ' + borderColor + ';' +
       'border-radius:4px;padding:.75rem 1rem;margin-bottom:.5rem;font-size:.7rem;">' +
       '<div style="display:flex;justify-content:space-between;margin-bottom:.25rem;">' +
-      '<span style="color:#d6b36a;font-weight:700;">' + l.event + '</span>' +
+      '<span style="color:#d6b36a;font-weight:700;">' + _esc(l.event) + '</span>' +
       '<span style="color:#333;">' + new Date(l.timestamp).toLocaleString('pt-BR') + '</span>' +
       '</div>' +
-      '<div style="color:#666;">' + (l.details || '') + '</div>' +
-      '<div style="color:#444;margin-top:.25rem;">fp: ' + l.fingerprint + ' | ' + l.url + '</div>' +
+      '<div style="color:#666;">' + _esc(l.details) + '</div>' +
+      '<div style="color:#444;margin-top:.25rem;">fp: ' + _esc(l.fingerprint) + ' | ' + _esc(l.url) + '</div>' +
       '</div>';
   }).join('');
 

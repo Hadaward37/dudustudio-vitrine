@@ -7,6 +7,9 @@
   <meta name="robots" content="noindex, nofollow"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta http-equiv="Referrer-Policy" content="no-referrer"/>
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests"/>
   <style>
     body {
       background: #0a0a0a;
@@ -172,18 +175,35 @@
 
   <script src="../assets/js/security.js"></script>
   <script>
-    var ADMIN_PASS = 'admin@dudu2025!';
+    var HASH = btoa('admin@dudu2025!');
     var SESSION_KEY = 'ds_admin';
+    var attempts = 0;
+    var MAX_ATTEMPTS = 3;
 
     function login() {
+      if (attempts >= MAX_ATTEMPTS) {
+        var err = document.getElementById('err');
+        err.textContent = 'Bloqueado. Recarregue a página.';
+        err.style.display = 'block';
+        document.querySelector('button').disabled = true;
+        return;
+      }
+
       var pass = document.getElementById('pass').value;
-      if (pass === ADMIN_PASS) {
-        localStorage.setItem(SESSION_KEY, btoa(pass + Date.now()));
+      if (btoa(pass) === HASH) {
+        localStorage.setItem(SESSION_KEY, btoa(Date.now().toString()));
         showDashboard();
       } else {
+        attempts++;
+        var remaining = MAX_ATTEMPTS - attempts;
         var err = document.getElementById('err');
+        err.textContent = remaining > 0
+          ? 'Senha incorreta. ' + remaining + ' tentativa(s) restante(s).'
+          : 'Bloqueado. Recarregue a página.';
         err.style.display = 'block';
-        setTimeout(function() { err.style.display = 'none'; }, 3000);
+        if (attempts >= MAX_ATTEMPTS) {
+          document.querySelector('button').disabled = true;
+        }
         document.getElementById('pass').value = '';
       }
     }
