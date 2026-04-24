@@ -1,43 +1,53 @@
 # Deploy — DuduStudio
 
-## Pipeline atual
+## Deploy automático (padrão)
 
-```
-Código local → GitHub (main) → Vercel (auto-deploy)
-```
-
-Qualquer push para `main` dispara o deploy automaticamente na Vercel.
-
----
-
-## Deploy padrão
+Qualquer push na branch `main` faz deploy automático na Vercel.
 
 ```bash
-# 1. Verifica o que mudou
-git status
-git diff
-
-# 2. Adiciona os arquivos
 git add .
-
-# 3. Commit descritivo
-git commit -m "tipo: descrição curta"
-
-# 4. Push → Vercel faz o resto
+git commit -m "tipo: descrição"
 git push origin main
 ```
 
-### Tipos de commit
+## Tipos de commit
+
 | Tipo | Uso |
 |------|-----|
-| `feat:` | Nova funcionalidade ou demo |
+| `feat:` | Nova funcionalidade |
 | `fix:` | Correção de bug |
-| `style:` | Mudança visual (CSS) |
-| `refactor:` | Reorganização sem mudar comportamento |
+| `security:` | Melhoria de segurança |
+| `demo:` | Novo site de cliente |
 | `docs:` | Documentação |
-| `security:` | Mudança de segurança |
+| `style:` | Mudança visual |
+| `refactor:` | Reorganização sem mudar comportamento |
 
----
+## URLs
+
+- **Produção:** https://dudustudio.com.br
+- **Vercel:** https://dudustudio-vitrine.vercel.app
+- **GitHub:** https://github.com/Hadaward37/dudustudio-vitrine
+
+## Checklist antes do deploy
+
+- [ ] Testar no mobile
+- [ ] Verificar links das demos
+- [ ] Confirmar DuduShield ativo no console
+- [ ] Verificar se CSS carrega (paleta dourada visível)
+- [ ] Checar se cards das demos abrem corretamente
+
+## Rollback
+
+Se algo quebrar após o push:
+
+```bash
+# Opção 1 — via Vercel Dashboard
+# Deployments → clica no deploy anterior → Promote to Production
+
+# Opção 2 — via git
+git revert HEAD
+git push origin main
+```
 
 ## Estrutura de arquivos críticos
 
@@ -47,35 +57,6 @@ git push origin main
 | `assets/css/style.css` | Sim — design inteiro |
 | `assets/js/main.js` | Sim — interações |
 | `assets/js/security.js` | Não — degradação silenciosa |
-
----
-
-## Variáveis de ambiente (Vercel)
-
-Atualmente o projeto não usa variáveis de ambiente.
-Quando adicionar backend, configure em:
-`Vercel Dashboard → Project → Settings → Environment Variables`
-
----
-
-## Domínio
-
-Configurar em: `Vercel Dashboard → Project → Domains`
-Domínio alvo: `dudustudio.com.br`
-
----
-
-## Rollback
-
-Se algo quebrar:
-```bash
-# Vercel Dashboard → Deployments → clica no deploy anterior → Promote to Production
-```
-Ou via git:
-```bash
-git revert HEAD
-git push origin main
-```
 
 ---
 

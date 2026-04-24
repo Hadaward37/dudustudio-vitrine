@@ -3,3 +3,11 @@
 Thumbs.db
 
 .vercel
+
+# Admin — credenciais e env
+admin/credentials.json
+admin/.env
+
+# Logs locais
+*.log
+dudushield_logs/
