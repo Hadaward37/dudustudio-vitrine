@@ -874,3 +874,79 @@ document.querySelectorAll('.text-gold').forEach(el => {
 ═══════════════════════════════════════════════════════════ */
 console.log('%c DuduStudio 🚀 ', 'background:#d6b36a;color:#0a0a0a;font-size:14px;font-weight:800;padding:6px 12px;border-radius:4px;');
 console.log('%c Site carregado com sucesso! ', 'color:#d6b36a;font-size:11px;');
+
+/* ═══════════════════════════════════════════════════════════
+   PAINEL DUDUSHIELD™
+   Acesse: adicione #dudushield-panel na URL
+═══════════════════════════════════════════════════════════ */
+window.addEventListener('hashchange', function() {
+  if (window.location.hash !== '#dudushield-panel') return;
+  history.pushState('', '', window.location.pathname);
+
+  var pass = prompt('🔒 DuduShield™ — Senha de acesso:');
+  if (pass !== 'ds$2025!xK9') {
+    if (pass !== null) alert('Senha incorreta.');
+    return;
+  }
+
+  if (typeof DuduShield === 'undefined') {
+    alert('DuduShield™ não carregado.');
+    return;
+  }
+
+  var summary = DuduShield.getSummary();
+  var logs = DuduShield.getLogs().slice(-20).reverse();
+
+  var metricCards = [
+    ['Total eventos', summary.total],
+    ['Últimas 24h', summary.last24h],
+    ['Fingerprints únicos', summary.uniqueFingerprints],
+    ['Rate limits', summary.byEvent.rate_limit || 0]
+  ].map(function(item) {
+    return '<div style="background:#111;border:1px solid #222;border-radius:8px;padding:1rem;text-align:center;">' +
+      '<div style="font-size:2rem;color:#d6b36a;font-weight:700;">' + item[1] + '</div>' +
+      '<div style="font-size:.65rem;color:#555;margin-top:.25rem;">' + item[0] + '</div>' +
+      '</div>';
+  }).join('');
+
+  var logRows = logs.map(function(l) {
+    var borderColor = l.event.includes('rate') ? '#ff4444' :
+      l.event.includes('xss') ? '#ff0000' :
+      l.event.includes('iframe') ? '#ff8800' :
+      l.event.includes('domain') ? '#ffff00' : '#333';
+    return '<div style="background:#0f0f0f;border:1px solid #1a1a1a;border-left:3px solid ' + borderColor + ';' +
+      'border-radius:4px;padding:.75rem 1rem;margin-bottom:.5rem;font-size:.7rem;">' +
+      '<div style="display:flex;justify-content:space-between;margin-bottom:.25rem;">' +
+      '<span style="color:#d6b36a;font-weight:700;">' + l.event + '</span>' +
+      '<span style="color:#333;">' + new Date(l.timestamp).toLocaleString('pt-BR') + '</span>' +
+      '</div>' +
+      '<div style="color:#666;">' + (l.details || '') + '</div>' +
+      '<div style="color:#444;margin-top:.25rem;">fp: ' + l.fingerprint + ' | ' + l.url + '</div>' +
+      '</div>';
+  }).join('');
+
+  var panel = document.createElement('div');
+  panel.id = 'ds-panel';
+  panel.innerHTML = '<div style="position:fixed;inset:0;background:#0a0a0a;z-index:99999;overflow-y:auto;' +
+    'font-family:monospace;padding:2rem;color:#f0f0f0;">' +
+    '<div style="max-width:900px;margin:0 auto;">' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;' +
+    'margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid #1a1a1a;">' +
+    '<h1 style="color:#d6b36a;font-size:1.2rem;margin:0;">🔒 DuduShield™ v2.0</h1>' +
+    '<button onclick="document.getElementById(\'ds-panel\').remove()" ' +
+    'style="background:#d6b36a;color:#000;border:none;padding:.5rem 1rem;' +
+    'border-radius:6px;cursor:pointer;font-weight:700;font-family:monospace;">✕ Fechar</button>' +
+    '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;">' +
+    metricCards +
+    '</div>' +
+    '<div style="font-size:.75rem;color:#444;margin-bottom:1rem;">Últimos ' + logs.length + ' eventos</div>' +
+    (logRows || '<div style="color:#333;font-size:.75rem;">Nenhum evento registrado.</div>') +
+    '<button onclick="DuduShield.clearLogs();document.getElementById(\'ds-panel\').remove()" ' +
+    'style="margin-top:1rem;background:transparent;color:#ff4444;' +
+    'border:1px solid #ff4444;padding:.5rem 1rem;border-radius:6px;' +
+    'cursor:pointer;font-family:monospace;">🗑 Limpar logs</button>' +
+    '</div></div>';
+
+  document.body.appendChild(panel);
+});
