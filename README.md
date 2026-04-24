@@ -23,10 +23,13 @@ dudustudio/
 │   │   │   ├── index.html
 │   │   │   ├── css/style.css
 │   │   │   └── js/main.js
-│   │   └── petshop/            ← Demo: PetShop
+│   │   ├── petshop/            ← Demo: PetShop
+│   │   │   ├── index.html
+│   │   │   ├── css/style.css
+│   │   │   └── js/main.js
+│   │   └── bella-doces/        ← Demo: Bella Doces (React + Vite)
 │   │       ├── index.html
-│   │       ├── css/style.css
-│   │       └── js/main.js
+│   │       └── assets/         ← Bundle gerado pelo Vite
 │   └── sites/
 │       └── .gitkeep            ← Pasta para futuros demos de sites completos
 └── README.md
@@ -41,7 +44,7 @@ dudustudio/
 | `#hero` | Hero | Título, subtítulo, mockups flutuantes, stats animados |
 | `#sobre` | Sobre | O DuduStudio + 3 diferenciais (test-drive, 7 dias, DuduShield™) |
 | `#como-funciona` | Como Funciona | 4 passos: Explore → WhatsApp → Aprove → No ar |
-| `#landing-pages` | Landing Pages | Cards com demos ao vivo (doceria, petshop) + CTA |
+| `#landing-pages` | Landing Pages | Cards com demos ao vivo (doceria, petshop, bella-doces) + CTA |
 | `#sites` | Sites Completos | Em breve — card com CTA para ser avisado |
 | `#vitrine` | Vitrine Completa | 6 cards de modelos com filtro por categoria |
 | `#diferenciais` | Diferenciais | 6 cards de diferenciais do estúdio |
@@ -52,10 +55,11 @@ dudustudio/
 
 ## Demos disponíveis
 
-| Demo | Caminho | Nicho |
-|------|---------|-------|
-| La Douceur | `demos/landing/doceria/index.html` | Doçaria artesanal |
-| PetShop | `demos/landing/petshop/index.html` | Pet shop / banho e tosa |
+| Demo | Caminho | Nicho | Tech |
+|------|---------|-------|------|
+| La Douceur | `demos/landing/doceria/index.html` | Doçaria artesanal | HTML/CSS/JS |
+| PetShop | `demos/landing/petshop/index.html` | Pet shop / banho e tosa | HTML/CSS/JS |
+| Bella Doces | `demos/landing/bella-doces/index.html` | Confeitaria premium | React + Vite |
 
 Cada demo tem um **banner fixo no rodapé** com link de volta para `#landing-pages`.
 
