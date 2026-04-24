@@ -1,0 +1,13 @@
+# DuduStudio Admin — .htaccess
+# Proteção básica para servidores Apache
+# No Vercel esta configuração não é aplicada (use vercel.json para rewrites)
+
+Options -Indexes
+Header always set X-Frame-Options "DENY"
+Header always set X-Content-Type-Options "nosniff"
+
+# Bloqueia acesso direto a arquivos sensíveis
+<FilesMatch "\.(env|json|log|sh|bak)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
