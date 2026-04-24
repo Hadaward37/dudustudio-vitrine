@@ -567,7 +567,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .steps-flow {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-  align-items: start;
+  align-items: stretch;
   gap: 0 16px;
   margin-top: 16px;
 }
@@ -649,7 +649,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 44px;
+  align-self: center;
   color: rgba(214,179,106,.4);
   font-size: 1.1rem;
 }
@@ -1055,11 +1055,40 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* ═══════════════════════════════════════════════════════════
    DEPOIMENTOS
 ═══════════════════════════════════════════════════════════ */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+/* ── Testimonials carousel ── */
+.testimonials-grid { display: none; } /* legado */
+
+.testi-carousel-wrap {
+  position: relative;
+  overflow: hidden;
   margin-bottom: 56px;
+}
+.testi-fade {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.testi-fade--left  { left: 0;  background: linear-gradient(to right,  var(--bg-sec), transparent); }
+.testi-fade--right { right: 0; background: linear-gradient(to left, var(--bg-sec), transparent); }
+
+.testi-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: testi-scroll 36s linear infinite;
+}
+.testi-carousel-wrap:hover .testi-track { animation-play-state: paused; }
+
+@keyframes testi-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testi-track .testimonial-card {
+  width: 360px;
+  flex-shrink: 0;
 }
 
 .testimonial-card {
@@ -1590,7 +1619,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .step-connector { display: none !important; }
   .vitrine-grid { grid-template-columns: repeat(2, 1fr); }
   .diff-grid { grid-template-columns: repeat(2, 1fr); }
-  .testimonials-grid { grid-template-columns: 1fr; }
+  .testi-track .testimonial-card { width: 280px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-bar { flex-wrap: wrap; padding: 24px; }
   .stats-item { min-width: 45%; border-right: none; padding: 12px; }
