@@ -140,6 +140,22 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.stats-item').forEach(el => statsObserver.observe(el));
 
+// Hero stats bar counters (new Awwwards hero)
+const hsbObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const numEl = entry.target.querySelector('.hsb-num');
+      if (numEl) {
+        const target = parseInt(numEl.dataset.target);
+        animateCounter(numEl, target);
+      }
+      hsbObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.hsb-item').forEach(el => hsbObserver.observe(el));
+
 /* ═══════════════════════════════════════════════════════════
    GSAP SCROLL ANIMATIONS (extra premium feel)
 ═══════════════════════════════════════════════════════════ */
