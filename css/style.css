@@ -1000,6 +1000,48 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   min-width: 200px;
 }
 
+/* ── Diferenciais metrics strip ── */
+.diff-metrics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: linear-gradient(135deg, rgba(214,179,106,.08), rgba(214,179,106,.04));
+  border: 1px solid rgba(214,179,106,.2);
+  border-radius: 20px;
+  padding: 32px 40px;
+  margin-bottom: 48px;
+}
+.dm-item {
+  flex: 1;
+  text-align: center;
+}
+.dm-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.dm-plus, .dm-suffix {
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+.dm-label {
+  font-size: .78rem;
+  color: var(--gray);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.dm-sep {
+  width: 1px;
+  height: 48px;
+  background: rgba(214,179,106,.2);
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
 /* ── Diferenciais ── */
 .diff-grid {
   display: grid;
@@ -1075,8 +1117,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .testi-track {
   display: flex;
+  flex-wrap: nowrap;
   gap: 24px;
   will-change: transform;
+  width: max-content;
 }
 
 .testi-track .testimonial-card {
@@ -1613,6 +1657,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .vitrine-grid { grid-template-columns: repeat(2, 1fr); }
   .diff-grid { grid-template-columns: repeat(2, 1fr); }
   .testi-track .testimonial-card { width: 280px; }
+  .diff-metrics { padding: 24px 20px; flex-wrap: wrap; gap: 16px; }
+  .dm-sep { display: none; }
+  .dm-item { min-width: 45%; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-bar { flex-wrap: wrap; padding: 24px; }
   .stats-item { min-width: 45%; border-right: none; padding: 12px; }

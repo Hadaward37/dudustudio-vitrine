@@ -180,15 +180,7 @@ gsap.from('.diff-card', {
   ease: 'power3.out'
 });
 
-// Stagger testimonial cards
-gsap.from('.testimonial-card', {
-  scrollTrigger: { trigger: '#depoimentos', start: 'top 75%' },
-  opacity: 0,
-  y: 40,
-  stagger: .15,
-  duration: .8,
-  ease: 'power3.out'
-});
+// Testimonial cards are handled by the infinite carousel — no GSAP needed here
 
 // Garante que todos os cards começam visíveis (fix: cards sumindo antes do filtro)
 document.querySelectorAll('.site-card').forEach(card => {
