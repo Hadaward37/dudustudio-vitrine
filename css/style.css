@@ -2066,3 +2066,195 @@ details[open] summary span {
   box-shadow: 0 0 8px rgba(214,179,106,.5);
   pointer-events: none;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CUBE LOGO 3D
+═══════════════════════════════════════════════════════════ */
+.cube-logo-wrapper {
+  width: 36px;
+  height: 36px;
+  perspective: 120px;
+  flex-shrink: 0;
+}
+
+.cube-logo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spinCubeLogo 8s linear infinite;
+}
+
+@keyframes spinCubeLogo {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.cube-face {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--gold);
+  border: 1px solid rgba(214,179,106,.45);
+  border-radius: 4px;
+  background: rgba(214,179,106,.1);
+  backdrop-filter: blur(4px);
+}
+
+.cube-face.front  { transform: translateZ(18px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(18px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(18px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(18px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(18px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(18px); }
+
+.nav-logo:hover .cube-logo { animation-play-state: paused; }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .cube-logo-wrapper { width: 28px; height: 28px; }
+  .cube-face { width: 28px; height: 28px; font-size: 10px; }
+  .cube-face.front  { transform: translateZ(14px); }
+  .cube-face.back   { transform: rotateY(180deg) translateZ(14px); }
+  .cube-face.left   { transform: rotateY(-90deg) translateZ(14px); }
+  .cube-face.right  { transform: rotateY(90deg) translateZ(14px); }
+  .cube-face.top    { transform: rotateX(90deg) translateZ(14px); }
+  .cube-face.bottom { transform: rotateX(-90deg) translateZ(14px); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STEPS — linha conectora animada
+═══════════════════════════════════════════════════════════ */
+.steps-grid {
+  position: relative;
+}
+
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 72px;
+  left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(214,179,106,.15) 20%,
+    rgba(214,179,106,.4) 50%,
+    rgba(214,179,106,.15) 80%,
+    transparent
+  );
+  z-index: 0;
+}
+
+.steps-grid::after {
+  content: '';
+  position: absolute;
+  top: 72px;
+  left: 10%;
+  height: 1px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 1;
+  box-shadow: 0 0 8px rgba(214,179,106,.5);
+  transition: width 1.5s ease;
+}
+
+.steps-grid.line-animated::after { width: 80%; }
+
+/* ═══════════════════════════════════════════════════════════
+   #LANDING-PAGES — glow pulsante
+═══════════════════════════════════════════════════════════ */
+#landing-pages {
+  position: relative;
+}
+
+#landing-pages::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214,179,106,.06) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+#landing-pages .site-card {
+  transition: transform .4s cubic-bezier(.4,0,.2,1),
+              border-color .4s,
+              box-shadow .4s;
+}
+
+#landing-pages .site-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.5),
+    0 0 0 1px rgba(214,179,106,.2),
+    0 0 30px rgba(214,179,106,.08);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   #SITES — gradiente de fundo
+═══════════════════════════════════════════════════════════ */
+#sites {
+  position: relative;
+  overflow: hidden;
+}
+
+#sites::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214,179,106,.05) 0%, transparent 70%);
+  pointer-events: none;
+  animation: glowPulse 8s ease-in-out infinite reverse;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TESTIMONIAL CARD — brilho hover
+═══════════════════════════════════════════════════════════ */
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(214,179,106,.04) 60%, transparent 80%);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+}
+
+.testimonial-card:hover::before {
+  opacity: 1;
+  animation: shimmerCard 2s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — sobre section grid
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #sobre .container > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #landing-pages > div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+}

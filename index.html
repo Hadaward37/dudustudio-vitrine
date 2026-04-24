@@ -26,6 +26,16 @@
   <header id="navbar">
     <nav class="nav-container">
       <a href="#" class="nav-logo">
+        <div class="cube-logo-wrapper">
+          <div class="cube-logo">
+            <div class="cube-face front">D</div>
+            <div class="cube-face back">S</div>
+            <div class="cube-face left">U</div>
+            <div class="cube-face right">D</div>
+            <div class="cube-face top">U</div>
+            <div class="cube-face bottom">S</div>
+          </div>
+        </div>
         <span class="logo-duda">Dudu</span><span class="logo-studio">Studio</span>
       </a>
       <ul class="nav-links">
@@ -236,6 +246,7 @@
 
   <!-- ═══════════════════════════ SOBRE ═══════════════════════════ -->
   <section id="sobre" class="section-vitrine">
+    <canvas id="sobreParticles" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.4;"></canvas>
     <div class="container">
       <div class="section-header">
         <span class="section-tag reveal-up">Quem somos</span>
@@ -264,6 +275,60 @@
           <p>Proteção profissional inclusa: SSL, SEO básico e suporte por WhatsApp.</p>
         </div>
       </div>
+
+      <div style="margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;" class="reveal-up">
+
+        <!-- Esquerda — texto explicativo -->
+        <div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(214,179,106,.12);border:1px solid rgba(214,179,106,.2);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;">📄</div>
+              <div>
+                <div style="font-weight:700;font-size:.95rem;margin-bottom:4px;">Landing Pages</div>
+                <div style="font-size:.85rem;color:var(--gray);line-height:1.6;">Uma página focada em converter. Ideal para quem está começando ou quer divulgar um serviço específico.</div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,.05);"></div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(214,179,106,.12);border:1px solid rgba(214,179,106,.2);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;">🌐</div>
+              <div>
+                <div style="font-weight:700;font-size:.95rem;margin-bottom:4px;">Sites Completos</div>
+                <div style="font-size:.85rem;color:var(--gray);line-height:1.6;">Múltiplas páginas com blog, galeria e área de contato. Para negócios que querem uma presença digital completa.</div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,.05);"></div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(214,179,106,.12);border:1px solid rgba(214,179,106,.2);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;">🔒</div>
+              <div>
+                <div style="font-weight:700;font-size:.95rem;margin-bottom:4px;">DuduShield™ incluso</div>
+                <div style="font-size:.85rem;color:var(--gray);line-height:1.6;">Todo site sai protegido. SSL, SEO básico e suporte via WhatsApp inclusos em qualquer plano.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direita — stats visuais -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1;">7</div>
+            <div style="font-size:.72rem;color:var(--gray);margin-top:6px;letter-spacing:.05em;">DIAS PARA ENTREGAR</div>
+          </div>
+          <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1;">50+</div>
+            <div style="font-size:.72rem;color:var(--gray);margin-top:6px;letter-spacing:.05em;">SITES ENTREGUES</div>
+          </div>
+          <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1;">98%</div>
+            <div style="font-size:.72rem;color:var(--gray);margin-top:6px;letter-spacing:.05em;">SATISFAÇÃO</div>
+          </div>
+          <div style="background:rgba(214,179,106,.06);border:1px solid rgba(214,179,106,.2);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-size:1.8rem;margin-bottom:6px;">🔒</div>
+            <div style="font-size:.72rem;color:var(--gold);letter-spacing:.05em;">DUDUSHIELD™</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
@@ -334,6 +399,30 @@
         <h2 class="section-title reveal-up">Landing Pages</h2>
         <p class="section-desc reveal-up">Uma página focada em converter visitante em cliente</p>
         <p class="reveal-up" style="color:var(--gold);font-size:1.2rem;font-weight:700;margin-top:6px;">A partir de R$ 1.200</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;" class="reveal-up">
+        <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="font-size:1.4rem;flex-shrink:0;">⚡</div>
+          <div>
+            <div style="font-weight:700;font-size:.88rem;margin-bottom:4px;">Entrega em 7 dias</div>
+            <div style="font-size:.78rem;color:var(--gray);line-height:1.6;">Do briefing ao ar em menos de uma semana.</div>
+          </div>
+        </div>
+        <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="font-size:1.4rem;flex-shrink:0;">🧪</div>
+          <div>
+            <div style="font-weight:700;font-size:.88rem;margin-bottom:4px;">Test-drive grátis</div>
+            <div style="font-size:.78rem;color:var(--gray);line-height:1.6;">Explore o demo antes de comprar. Sem risco.</div>
+          </div>
+        </div>
+        <div style="background:var(--card-bg);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="font-size:1.4rem;flex-shrink:0;">📱</div>
+          <div>
+            <div style="font-weight:700;font-size:.88rem;margin-bottom:4px;">100% mobile</div>
+            <div style="font-size:.78rem;color:var(--gray);line-height:1.6;">Funciona perfeitamente no celular.</div>
+          </div>
+        </div>
       </div>
 
       <div class="vitrine-grid">
@@ -515,6 +604,23 @@
         <h2 class="section-title reveal-up">Sites Completos</h2>
         <p class="section-desc reveal-up">Site com até 5 páginas, blog e área do cliente</p>
         <p class="reveal-up" style="color:var(--gold);font-size:1.2rem;font-weight:700;margin-top:6px;">A partir de R$ 2.800</p>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid rgba(214,179,106,.15);border-radius:16px;padding:28px 32px;margin-bottom:40px;display:flex;gap:32px;align-items:center;flex-wrap:wrap;" class="reveal-up">
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:.72rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Diferença</div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px;">Landing Page vs Site Completo</h3>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.7;">
+            <strong style="color:#fff;">Landing Page</strong> = 1 página focada em vender um produto ou serviço.<br/>
+            <strong style="color:#fff;">Site Completo</strong> = várias páginas, blog, galeria. Para empresas que querem crescer.
+          </p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#landing-pages" class="btn btn-outline btn-sm">Ver Landing Pages</a>
+          <a href="https://wa.me/5511999999999?text=Quero%20um%20site%20completo!" target="_blank" class="btn btn-gold btn-sm">
+            <i class="fab fa-whatsapp"></i> Falar sobre sites
+          </a>
+        </div>
       </div>
 
       <div style="max-width:480px;margin:0 auto;" class="reveal-up">
@@ -1238,6 +1344,16 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-logo footer-logo">
+            <div class="cube-logo-wrapper">
+              <div class="cube-logo">
+                <div class="cube-face front">D</div>
+                <div class="cube-face back">S</div>
+                <div class="cube-face left">U</div>
+                <div class="cube-face right">D</div>
+                <div class="cube-face top">U</div>
+                <div class="cube-face bottom">S</div>
+              </div>
+            </div>
             <span class="logo-duda">Dudu</span><span class="logo-studio">Studio</span>
           </a>
           <p>Sites prontos que geram clientes. Rápido, profissional e acessível.</p>

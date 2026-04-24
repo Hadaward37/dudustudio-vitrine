@@ -190,15 +190,27 @@ gsap.from('.testimonial-card', {
   ease: 'power3.out'
 });
 
-// Stagger vitrine cards
-gsap.from('.site-card', {
-  scrollTrigger: { trigger: '#vitrine', start: 'top 70%' },
-  opacity: 0,
-  y: 50,
-  stagger: .1,
-  duration: .8,
-  ease: 'power3.out'
+// Garante que todos os cards começam visíveis (fix: cards sumindo antes do filtro)
+document.querySelectorAll('.site-card').forEach(card => {
+  card.style.opacity = '1';
+  card.style.display = 'flex';
 });
+
+// Stagger vitrine cards
+gsap.fromTo('.site-card',
+  { opacity: 0, y: 50, scale: 0.97 },
+  {
+    opacity: 1, y: 0, scale: 1,
+    duration: .6,
+    stagger: .08,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#vitrine',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    }
+  }
+);
 
 // CTA section
 gsap.from('#cta-final .cta-content', {
@@ -710,6 +722,78 @@ if (window.innerWidth <= 768) {
   // Reduce GSAP stagger
   gsap.globalTimeline.timeScale(1.2);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   PARTÍCULAS DOURADAS — seção #sobre
+═══════════════════════════════════════════════════════════ */
+(function initSobreParticles() {
+  const canvas = document.getElementById('sobreParticles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  const particles = Array.from({ length: 35 }, () => ({
+    x:     Math.random() * canvas.width,
+    y:     Math.random() * canvas.height,
+    r:     Math.random() * 1.5 + 0.5,
+    vx:    (Math.random() - 0.5) * 0.3,
+    vy:    (Math.random() - 0.5) * 0.3,
+    alpha: Math.random() * 0.5 + 0.2
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(214,179,106,${p.alpha})`;
+      ctx.fill();
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   LINHA ANIMADA — seção #como-funciona
+═══════════════════════════════════════════════════════════ */
+ScrollTrigger.create({
+  trigger: '#como-funciona',
+  start: 'top 65%',
+  onEnter: () => {
+    const grid = document.querySelector('.steps-grid');
+    if (grid) grid.classList.add('line-animated');
+  }
+});
+
+/* ═══════════════════════════════════════════════════════════
+   ÍCONES DIFERENCIAIS — rotação na entrada
+═══════════════════════════════════════════════════════════ */
+gsap.utils.toArray('.diff-icon').forEach((icon, i) => {
+  gsap.from(icon, {
+    scrollTrigger: {
+      trigger: icon,
+      start: 'top 85%',
+      toggleActions: 'play none none none'
+    },
+    rotation: -15,
+    scale: 0.5,
+    opacity: 0,
+    duration: .6,
+    delay: i * 0.08,
+    ease: 'back.out(2)'
+  });
+});
 
 /* ═══════════════════════════════════════════════════════════
    SCROLL PROGRESS BAR
