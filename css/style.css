@@ -527,7 +527,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .section-dark  { background: var(--bg-sec); padding: 100px 0; position: relative; }
 .section-vitrine{ background: var(--bg-main); padding: 100px 0; position: relative; }
 
-.section-header { text-align: center; margin-bottom: 64px; }
+.section-header { text-align: center; margin-bottom: 56px; }
 
 .section-tag {
   display: inline-block;
@@ -540,7 +540,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: var(--gold);
   letter-spacing: .08em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 }
 
 .section-title {
@@ -549,7 +549,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: 700;
   letter-spacing: -.02em;
   line-height: 1.15;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .section-desc {
@@ -1024,7 +1024,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 ═══════════════════════════════════════════════════════════ */
 #cta-final {
   background: var(--bg-sec);
-  padding: 120px 24px;
+  padding: 80px 24px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2250,8 +2250,14 @@ details[open] summary span {
   animation: shimmerCard 2s linear infinite;
 }
 
+/* Logo text — garante que Dudu e Studio ficam juntos sem gap */
+.logo-text {
+  display: inline;
+  white-space: nowrap;
+}
+
 /* ═══════════════════════════════════════════════════════════
-   RESPONSIVE — sobre section grid
+   RESPONSIVE — novos grids de conteúdo
 ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   #sobre .container > div[style*="grid-template-columns:1fr 1fr"] {
@@ -2259,5 +2265,26 @@ details[open] summary span {
   }
   #landing-pages > div[style*="grid-template-columns:repeat(3"] {
     grid-template-columns: 1fr !important;
+  }
+  /* Como funciona benefit cards */
+  div[style*="grid-template-columns:repeat(4,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  div[style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Comparativo vs */
+  div[style*="grid-template-columns:1fr auto 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  div[style*="grid-template-columns:1fr auto 1fr"] > div:nth-child(2) {
+    display: none !important;
+  }
+  div[style*="border-radius:16px 0 0 16px"] {
+    border-radius: 16px !important;
+  }
+  div[style*="border-radius:0 16px 16px 0"] {
+    border-radius: 16px !important;
+    border-left: 1px solid rgba(255,255,255,.08) !important;
   }
 }
