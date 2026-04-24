@@ -851,6 +851,33 @@ document.querySelectorAll('.text-gold').forEach(el => {
 });
 
 /* ═══════════════════════════════════════════════════════════
+   TESTIMONIALS INFINITE CAROUSEL
+═══════════════════════════════════════════════════════════ */
+(function () {
+  const wrap  = document.getElementById('testiCarouselWrap');
+  const track = document.getElementById('testiTrack');
+  if (!wrap || !track) return;
+
+  let pos    = 0;
+  let paused = false;
+  const SPEED = 0.6; // px per frame
+
+  wrap.addEventListener('mouseenter', () => { paused = true; });
+  wrap.addEventListener('mouseleave', () => { paused = false; });
+
+  function tick() {
+    if (!paused) {
+      pos -= SPEED;
+      const half = track.scrollWidth / 2;
+      if (Math.abs(pos) >= half) pos = 0;
+      track.style.transform = `translateX(${pos}px)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ═══════════════════════════════════════════════════════════
    INIT LOG
 ═══════════════════════════════════════════════════════════ */
 console.log('%c DuduStudio 🚀 ', 'background:#d6b36a;color:#0a0a0a;font-size:14px;font-weight:800;padding:6px 12px;border-radius:4px;');

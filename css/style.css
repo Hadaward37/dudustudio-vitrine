@@ -1061,33 +1061,26 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .testi-carousel-wrap {
   position: relative;
   overflow: hidden;
-  margin-bottom: 56px;
+  padding: 8px 0 56px;
 }
 .testi-fade {
   position: absolute;
   top: 0; bottom: 0;
-  width: 80px;
+  width: 120px;
   z-index: 2;
   pointer-events: none;
 }
-.testi-fade--left  { left: 0;  background: linear-gradient(to right,  var(--bg-sec), transparent); }
-.testi-fade--right { right: 0; background: linear-gradient(to left, var(--bg-sec), transparent); }
+.testi-fade--left  { left: 0;  background: linear-gradient(to right,  var(--bg-main), transparent); }
+.testi-fade--right { right: 0; background: linear-gradient(to left, var(--bg-main), transparent); }
 
 .testi-track {
   display: flex;
   gap: 24px;
-  width: max-content;
-  animation: testi-scroll 36s linear infinite;
-}
-.testi-carousel-wrap:hover .testi-track { animation-play-state: paused; }
-
-@keyframes testi-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  will-change: transform;
 }
 
 .testi-track .testimonial-card {
-  width: 360px;
+  width: 340px;
   flex-shrink: 0;
 }
 
