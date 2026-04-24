@@ -1877,12 +1877,18 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   max-width: 200px;
 }
 
+.hsb-value {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  line-height: 1;
+}
+
 .hsb-num {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--gold);
-  display: inline;
   line-height: 1;
 }
 
@@ -1890,7 +1896,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   color: var(--gold);
-  display: inline;
 }
 
 .hsb-label {
