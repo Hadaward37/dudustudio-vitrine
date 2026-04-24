@@ -1351,6 +1351,79 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* ═══════════════════════════════════════════════════════════
+   WHATSAPP FLUTUANTE
+═══════════════════════════════════════════════════════════ */
+#whatsappFloat {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,.5);
+  z-index: 900;
+  transition: transform .3s, box-shadow .3s;
+  animation: waPulse 3s ease-in-out infinite;
+}
+
+#whatsappFloat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37,211,102,.7);
+}
+
+.wa-tooltip {
+  position: absolute;
+  left: 68px;
+  background: #25d366;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: .82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+  font-family: 'Inter', sans-serif;
+}
+
+#whatsappFloat:hover .wa-tooltip { opacity: 1; }
+
+@keyframes waPulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.5); }
+  50% { box-shadow: 0 4px 35px rgba(37,211,102,.8), 0 0 0 8px rgba(37,211,102,.1); }
+}
+
+/* CTA Checklist */
+.cta-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.cta-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,.8);
+  font-size: .95rem;
+}
+.cta-checklist li i {
+  color: var(--gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
    REVEAL ANIMATIONS
 ═══════════════════════════════════════════════════════════ */
 .reveal-up {
@@ -1407,6 +1480,15 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .stats-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
   .stats-item:last-child { border-bottom: none; }
   .section-dark, .section-vitrine { padding: 64px 0; }
+}
+
+@media (max-width: 768px) {
+  #precos .container > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  #precos [style*="transform:scale(1.04)"] {
+    transform: scale(1) !important;
+  }
 }
 
 @media (max-width: 480px) {
