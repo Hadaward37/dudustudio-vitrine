@@ -14,7 +14,6 @@ Thumbs.db
 # Admin — credenciais e env
 admin/credentials.json
 admin/.env
-admin/dashboard.html
 
 # Dependências
 node_modules/

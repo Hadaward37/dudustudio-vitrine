@@ -176,7 +176,7 @@
   <script src="../assets/js/security.js"></script>
   <script>
     var HASH = btoa('admin@dudu2025!');
-    var SESSION_KEY = 'ds_admin';
+    var SESSION_KEY = 'ds_admin_auth';
     var attempts = 0;
     var MAX_ATTEMPTS = 3;
 
@@ -192,7 +192,7 @@
       var pass = document.getElementById('pass').value;
       if (btoa(pass) === HASH) {
         localStorage.setItem(SESSION_KEY, btoa(Date.now().toString()));
-        showDashboard();
+        window.location.href = 'dashboard.html';
       } else {
         attempts++;
         var remaining = MAX_ATTEMPTS - attempts;
@@ -208,22 +208,18 @@
       }
     }
 
-    function showDashboard() {
-      document.getElementById('loginBox').style.display = 'none';
-      var dash = document.getElementById('dashboard');
-      dash.style.display = 'flex';
-    }
-
-    function logout() {
-      localStorage.removeItem(SESSION_KEY);
-      document.getElementById('dashboard').style.display = 'none';
-      document.getElementById('loginBox').style.display = 'block';
-      document.getElementById('pass').value = '';
-    }
-
-    // Verifica sessão ao carregar
+    // Verifica sessão ao carregar — redireciona direto pro dashboard
     if (localStorage.getItem(SESSION_KEY)) {
-      showDashboard();
+      try {
+        var ts = parseInt(atob(localStorage.getItem(SESSION_KEY)));
+        if (Date.now() - ts < 8 * 60 * 60 * 1000) {
+          window.location.href = 'dashboard.html';
+        } else {
+          localStorage.removeItem(SESSION_KEY);
+        }
+      } catch (e) {
+        localStorage.removeItem(SESSION_KEY);
+      }
     }
   </script>
 </body>
