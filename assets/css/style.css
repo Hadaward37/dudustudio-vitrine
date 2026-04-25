@@ -2506,3 +2506,21 @@ details[open] summary span {
     border-left: 1px solid rgba(255,255,255,.08) !important;
   }
 }
+
+/* ── SITES — comparativo LP vs Site Completo (responsivo) ── */
+@media (max-width: 768px) {
+  #sites > .container > div[style*="grid-template-columns:1fr auto 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  #sites [style*="border-radius:20px 0 0 20px"] {
+    border-radius: 20px !important;
+  }
+  #sites [style*="border-radius:0 20px 20px 0"] {
+    border-radius: 20px !important;
+  }
+  #sites [style*="padding:0 20px"][style*="position:relative"] {
+    display: none !important;
+  }
+}
