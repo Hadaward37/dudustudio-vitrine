@@ -2411,19 +2411,6 @@ details[open] summary span {
   animation: glowPulse 6s ease-in-out infinite;
 }
 
-#landing-pages .site-card {
-  transition: transform .4s cubic-bezier(.4,0,.2,1),
-              border-color .4s,
-              box-shadow .4s;
-}
-
-#landing-pages .site-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.5),
-    0 0 0 1px rgba(214,179,106,.2),
-    0 0 30px rgba(214,179,106,.08);
-}
 
 /* ═══════════════════════════════════════════════════════════
    #SITES — gradiente de fundo
