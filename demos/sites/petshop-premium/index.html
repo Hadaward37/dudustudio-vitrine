@@ -23,13 +23,11 @@
     <script type="module" crossorigin src="./assets/index-CAFbDhnx.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DTeMxLsF.css">
     <style>
-      /* Fix: GSAP transforms rompendo overflow:hidden inline — força GPU compositing */
-      .tier-image-placeholder {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-mask-image: -webkit-radial-gradient(white, black);
-        mask-image: radial-gradient(white, black);
-      }
+      /* Oculta canvas WebGL do efeito page-curl (Three.js position:fixed z-index:10)
+         Os vértices do "rolo" extrapolam o container durante a animação e não
+         podem ser clippados via CSS em uma canvas WebGL de página inteira.
+         As imagens HTML estáticas em .tier-image-placeholder são preservadas. */
+      div[style*="z-index: 10"][style*="pointer-events: none"] { display: none !important; }
     </style>
   </head>
   <body>
