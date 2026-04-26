@@ -1,0 +1,10 @@
+node_modules
+.next
+dist-ssr
+*.local
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
