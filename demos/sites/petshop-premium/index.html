@@ -23,8 +23,13 @@
     <script type="module" crossorigin src="./assets/index-CAFbDhnx.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DTeMxLsF.css">
     <style>
-      /* Fix: scale animations overflowing rounded containers */
-      .overflow-hidden { isolation: isolate; }
+      /* Fix: GSAP transforms rompendo overflow:hidden inline — força GPU compositing */
+      .tier-image-placeholder {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: radial-gradient(white, black);
+      }
     </style>
   </head>
   <body>
