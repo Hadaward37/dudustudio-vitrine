@@ -128,7 +128,7 @@ export default function Hero() {
                 style={{ backgroundColor: 'var(--color-accent-lime)' }}
               />
               <img
-                src="/hero-portrait.jpg"
+                src="./hero-portrait.jpg"
                 alt="Dra. Ana Silva - Nutricionista"
                 className="relative w-[300px] sm:w-[380px] lg:w-[420px] h-auto rounded-[2rem] object-cover shadow-xl"
                 style={{ aspectRatio: '3/4' }}

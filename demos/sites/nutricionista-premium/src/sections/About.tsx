@@ -32,7 +32,7 @@ export default function About() {
                 style={{ backgroundColor: 'var(--color-primary)', opacity: 0.3 }}
               />
               <img
-                src="/about-photo.jpg"
+                src="./about-photo.jpg"
                 alt="Dra. Ana Silva em consultório"
                 className="relative w-full h-auto rounded-[2rem] object-cover shadow-lg"
                 style={{ aspectRatio: '4/3' }}
