@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>DuduStudio – Sites Prontos que Geram Clientes</title>
   <meta name="description" content="Sites profissionais prontos em poucos dias. Escolha seu modelo, personalizamos com seus dados e seu site vai ao ar. DuduStudio – resultado rápido e sem complicação." />
 
@@ -27,9 +27,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
 
-  <!-- GSAP -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- GSAP preload (download imediato, sem bloquear renderização) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" as="script">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" as="script">
 
   <link rel="stylesheet" href="assets/css/style.css" />
 
@@ -754,13 +754,97 @@
         </div>
       </div>
 
-      <!-- Em breve — CTA -->
-      <div class="sites-coming-soon reveal-up">
-        <div class="scs-badge">🚧 Em breve</div>
-        <p class="scs-text">Demos de sites completos chegando em breve. Cadastre seu interesse e te avisamos no lançamento.</p>
-        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20nos%20sites%20completos%20do%20DuduStudio.%20Me%20avisa%20quando%20tiver%20demo%20disponível!" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
-          <i class="fab fa-whatsapp"></i> Me avise no lançamento
-        </a>
+      <!-- Vitrine Sites Completos -->
+      <div class="vitrine-grid reveal-up" style="max-width:720px;margin:0 auto;grid-template-columns:repeat(2,1fr);">
+
+        <!-- Card JC Hair Premium -->
+        <article class="site-card">
+          <div class="card-image-wrap">
+            <div class="card-image" style="background:linear-gradient(135deg,#050505,#0f0d0a,#1a1510);">
+              <div class="card-preview-ui">
+                <div class="prev-nav"><div class="prev-logo" style="color:#D4A574;letter-spacing:.06em;font-size:.55rem;">✂️ Josafá Cabral</div></div>
+                <div class="prev-hero" style="background:linear-gradient(135deg,#0a0806,#1a1208);">
+                  <div class="prev-hero-text">
+                    <div class="prev-h1" style="background:rgba(212,165,116,.7);width:80%;"></div>
+                    <div class="prev-h2" style="background:rgba(212,165,116,.35);width:60%;margin-top:4px;"></div>
+                    <div class="prev-cta" style="background:transparent;border:1px solid #D4A574;width:38%;margin-top:8px;"></div>
+                  </div>
+                </div>
+                <div class="prev-cards">
+                  <div class="prev-card" style="background:rgba(212,165,116,.08);border:1px solid rgba(212,165,116,.15);"></div>
+                  <div class="prev-card" style="background:rgba(212,165,116,.08);border:1px solid rgba(212,165,116,.15);"></div>
+                  <div class="prev-card" style="background:rgba(212,165,116,.08);border:1px solid rgba(212,165,116,.15);"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card-overlay">
+              <a href="demos/sites/jc-hair-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
+                <i class="fas fa-eye"></i> Ver demo
+              </a>
+            </div>
+            <div class="card-badge" style="background:linear-gradient(135deg,#1a1208,#3d2c12);color:#D4A574;border:1px solid rgba(212,165,116,.3);">✨ React + Vite</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-category">✂️ Beleza &amp; Estética</span>
+              <span class="card-status status-available">Disponível</span>
+            </div>
+            <h3 class="card-title">Prótese Capilar Premium</h3>
+            <p class="card-desc">Site completo com 5 páginas para clínica de prótese capilar. Design de luxo com animações fluidas, galeria before/after e formulário de contato.</p>
+            <div class="card-features">
+              <span><i class="fas fa-check"></i> 5 páginas</span>
+              <span><i class="fas fa-check"></i> Before &amp; After</span>
+              <span><i class="fas fa-check"></i> Galeria de resultados</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-price">
+                <span class="price-from">a partir de</span>
+                <span class="price-value">R$&nbsp;2.800</span>
+              </div>
+              <a href="demos/sites/jc-hair-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+                Ver demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Em breve — card placeholder -->
+        <article class="site-card" style="pointer-events:none;">
+          <div class="card-image-wrap">
+            <div class="card-image" style="background:linear-gradient(135deg,#0e0e0e,#1a1a1a);">
+              <div class="card-preview-ui" style="filter:blur(2px);">
+                <div class="prev-nav"><div class="prev-logo" style="color:#555;">🔒 Em breve</div></div>
+                <div class="prev-hero" style="background:#111;">
+                  <div class="prev-hero-text">
+                    <div class="prev-h1" style="background:#222;"></div>
+                    <div class="prev-h2" style="background:#1d1d1d;margin-top:4px;"></div>
+                    <div class="prev-cta" style="background:#222;margin-top:8px;"></div>
+                  </div>
+                </div>
+                <div class="prev-cards">
+                  <div class="prev-card" style="background:#181818;"></div>
+                  <div class="prev-card" style="background:#181818;"></div>
+                  <div class="prev-card" style="background:#181818;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card-badge" style="background:#1a1a1a;color:#555;">🚧 Em breve</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-category">🔒 Novo modelo</span>
+              <span class="card-status" style="background:rgba(255,255,255,.04);color:#555;">Em breve</span>
+            </div>
+            <h3 class="card-title" style="color:#444;">Próximo modelo</h3>
+            <p class="card-desc">Novo site completo chegando em breve. Me avise para ser o primeiro a ver.</p>
+            <div class="card-footer">
+              <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20ser%20avisado%20do%20novo%20site%20completo!" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm" style="pointer-events:all;opacity:1;">
+                <i class="fab fa-whatsapp"></i> Me avise
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -807,7 +891,7 @@
               </div>
             </div>
             <div class="card-overlay">
-              <a href="demos/sites/bella-doces/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
+              <a href="demos/landing/bella-doces/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
                 <i class="fas fa-eye"></i> Ver demo
               </a>
             </div>
@@ -830,7 +914,7 @@
                 <span class="price-from">a partir de</span>
                 <span class="price-value">R$&nbsp;2.800</span>
               </div>
-              <a href="demos/sites/bella-doces/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+              <a href="demos/landing/bella-doces/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
                 Ver demo
               </a>
             </div>
@@ -858,7 +942,7 @@
               </div>
             </div>
             <div class="card-overlay">
-              <a href="demos/sites/advocacia-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
+              <a href="demos/landing/advocacia-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
                 <i class="fas fa-eye"></i> Ver demo
               </a>
             </div>
@@ -881,58 +965,7 @@
                 <span class="price-from">a partir de</span>
                 <span class="price-value">R$&nbsp;2.800</span>
               </div>
-              <a href="demos/sites/advocacia-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
-                Ver demo
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card PetShop Premium -->
-        <article class="site-card reveal-up" data-category="servicos" style="transition-delay:.1s">
-          <div class="card-image-wrap">
-            <div class="card-image" style="background:linear-gradient(135deg,#1a1208,#3d2e18,#5c4a2a);">
-              <div class="card-preview-ui">
-                <div class="prev-nav"><div class="prev-logo" style="color:#d4a96a;">🐾 PetShop Premium</div></div>
-                <div class="prev-hero" style="background:linear-gradient(135deg,#1a1208,#3d2e18);">
-                  <div class="prev-hero-text">
-                    <div class="prev-h1"></div>
-                    <div class="prev-h2"></div>
-                    <div class="prev-cta" style="background:#d4a96a;"></div>
-                  </div>
-                </div>
-                <div class="prev-cards">
-                  <div class="prev-card" style="background:rgba(212,169,106,.1)"></div>
-                  <div class="prev-card" style="background:rgba(212,169,106,.1)"></div>
-                  <div class="prev-card" style="background:rgba(212,169,106,.1)"></div>
-                </div>
-              </div>
-            </div>
-            <div class="card-overlay">
-              <a href="demos/sites/petshop-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
-                <i class="fas fa-eye"></i> Ver demo
-              </a>
-            </div>
-            <div class="card-badge" style="background:linear-gradient(135deg,#5c4a2a,#d4a96a);">✨ React + Vite</div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-category">🐾 Serviços</span>
-              <span class="card-status status-available">Disponível</span>
-            </div>
-            <h3 class="card-title">PetShop Premium</h3>
-            <p class="card-desc">Site luxuoso para petshop com nutrição artesanal, spa canino, loja exclusiva e planos de membros.</p>
-            <div class="card-features">
-              <span><i class="fas fa-check"></i> Spa canino</span>
-              <span><i class="fas fa-check"></i> Planos & membros</span>
-              <span><i class="fas fa-check"></i> WhatsApp CTA</span>
-            </div>
-            <div class="card-footer">
-              <div class="card-price">
-                <span class="price-from">a partir de</span>
-                <span class="price-value">R$&nbsp;2.800</span>
-              </div>
-              <a href="demos/sites/petshop-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+              <a href="demos/landing/advocacia-premium/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
                 Ver demo
               </a>
             </div>
@@ -960,7 +993,7 @@
               </div>
             </div>
             <div class="card-overlay">
-              <a href="demos/sites/nutricionista-premium/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
+              <a href="demos/landing/nutricionista-premium/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
                 <i class="fas fa-eye"></i> Ver demo
               </a>
             </div>
@@ -983,7 +1016,7 @@
                 <span class="price-from">a partir de</span>
                 <span class="price-value">R$&nbsp;2.800</span>
               </div>
-              <a href="demos/sites/nutricionista-premium/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+              <a href="demos/landing/nutricionista-premium/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
                 Ver demo
               </a>
             </div>
@@ -1011,7 +1044,7 @@
               </div>
             </div>
             <div class="card-overlay">
-              <a href="demos/sites/chocolate-chateau/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
+              <a href="demos/landing/chocolate-chateau/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm">
                 <i class="fas fa-eye"></i> Ver demo
               </a>
             </div>
@@ -1034,7 +1067,7 @@
                 <span class="price-from">a partir de</span>
                 <span class="price-value">R$&nbsp;2.800</span>
               </div>
-              <a href="demos/sites/chocolate-chateau/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+              <a href="demos/landing/chocolate-chateau/dist/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
                 Ver demo
               </a>
             </div>
@@ -1622,6 +1655,9 @@
     <span class="wa-tooltip">Falar agora</span>
   </a>
 
+  <!-- GSAP executado aqui (após HTML renderizado, evita bloqueio) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="assets/js/security.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

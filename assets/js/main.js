@@ -165,9 +165,10 @@ gsap.from('.step-card', {
   scrollTrigger: { trigger: '#como-funciona', start: 'top 75%' },
   opacity: 0,
   y: 50,
-  stagger: .2,
-  duration: .9,
-  ease: 'power3.out'
+  stagger: .05,
+  duration: .4,
+  ease: 'power3.out',
+  onStart: () => document.querySelectorAll('.step-card').forEach(c => c.classList.add('gsap-animated'))
 });
 
 // Stagger diff cards
@@ -175,30 +176,42 @@ gsap.from('.diff-card', {
   scrollTrigger: { trigger: '#diferenciais', start: 'top 75%' },
   opacity: 0,
   y: 40,
-  stagger: .1,
-  duration: .8,
-  ease: 'power3.out'
+  stagger: .05,
+  duration: .4,
+  ease: 'power3.out',
+  onStart: () => document.querySelectorAll('.diff-card').forEach(c => c.classList.add('gsap-animated'))
 });
 
 // Testimonial cards are handled by the infinite carousel — no GSAP needed here
 
-// Garante que todos os cards começam visíveis (fix: cards sumindo antes do filtro)
-document.querySelectorAll('.site-card').forEach(card => {
-  card.style.opacity = '1';
-  card.style.display = 'flex';
-});
-
-// Stagger vitrine cards
-gsap.fromTo('.site-card',
-  { opacity: 0, y: 50, scale: 0.97 },
+// Stagger vitrine cards (landing pages)
+gsap.fromTo('#vitrine .site-card',
+  { opacity: 0, y: 30, scale: 0.97 },
   {
     opacity: 1, y: 0, scale: 1,
-    duration: .6,
+    duration: .4,
+    stagger: .05,
+    ease: 'power2.out',
+    onStart: () => document.querySelectorAll('#vitrine .site-card').forEach(c => c.classList.add('gsap-animated')),
+    scrollTrigger: {
+      trigger: '#vitrine',
+      start: 'top 85%',
+      toggleActions: 'play none none none'
+    }
+  }
+);
+
+// Stagger sites completos cards
+gsap.fromTo('#sites .site-card',
+  { opacity: 0, y: 30, scale: 0.97 },
+  {
+    opacity: 1, y: 0, scale: 1,
+    duration: .4,
     stagger: .08,
     ease: 'power2.out',
     scrollTrigger: {
-      trigger: '#vitrine',
-      start: 'top 80%',
+      trigger: '#sites .vitrine-grid',
+      start: 'top 85%',
       toggleActions: 'play none none none'
     }
   }
@@ -217,7 +230,7 @@ gsap.from('#cta-final .cta-content', {
    FILTER TABS
 ═══════════════════════════════════════════════════════════ */
 const filterBtns = document.querySelectorAll('.filter-btn');
-const siteCards = document.querySelectorAll('.site-card');
+const siteCards = document.querySelectorAll('#vitrine .site-card');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -716,9 +729,31 @@ if (window.innerWidth <= 768) {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   FALLBACK — garante cards visíveis mesmo se GSAP não disparar
+═══════════════════════════════════════════════════════════ */
+function ensureCardsVisible() {
+  document.querySelectorAll(
+    '.site-card, .diff-card, .step-card, .step-flow-card, .testimonial-card, .feature-card'
+  ).forEach(card => {
+    card.style.opacity = '1';
+    card.style.transform = 'none';
+    card.classList.add('gsap-animated');
+  });
+}
+
+// Fallback após 2s caso ScrollTrigger não dispare
+setTimeout(ensureCardsVisible, 2000);
+
+// Fallback quando tudo carrega
+window.addEventListener('load', () => {
+  setTimeout(ensureCardsVisible, 500);
+});
+
+/* ═══════════════════════════════════════════════════════════
    PARTÍCULAS DOURADAS — seção #sobre
 ═══════════════════════════════════════════════════════════ */
 (function initSobreParticles() {
+  if (window.innerWidth <= 768) return;
   const canvas = document.getElementById('sobreParticles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
