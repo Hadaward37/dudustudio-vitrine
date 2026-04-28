@@ -120,7 +120,7 @@ const heroStatsObserver = new IntersectionObserver((entries) => {
       heroStatsObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.1, rootMargin: '0px 0px 40px 0px' });
 
 document.querySelectorAll('.stat-item').forEach(el => heroStatsObserver.observe(el));
 
@@ -136,7 +136,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       statsObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.1, rootMargin: '0px 0px 40px 0px' });
 
 document.querySelectorAll('.stats-item').forEach(el => statsObserver.observe(el));
 
@@ -152,7 +152,7 @@ const hsbObserver = new IntersectionObserver((entries) => {
       hsbObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.1, rootMargin: '0px 0px 40px 0px' });
 
 document.querySelectorAll('.hsb-item').forEach(el => hsbObserver.observe(el));
 
