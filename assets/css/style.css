@@ -2588,3 +2588,50 @@ details[open] summary span {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Grids com inline style repeat(3,1fr) — mobile override */
+@media (max-width: 768px) {
+  .diff-grid,
+  .inline-3-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pricing-grid {
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 900px) {
+  .inline-3-grid {
+    grid-template-columns: repeat(2,1fr) !important;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Grids de comparação (LP vs Site / DuduStudio vs Agência) — mobile */
+@media (max-width: 680px) {
+  .compare-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* esconde separador vertical VS no mobile, mostra texto "vs" horizontal */
+  .compare-grid > *:nth-child(2) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4px 0 !important;
+    width: auto !important;
+  }
+  .compare-grid > *:nth-child(2) > div:first-child {
+    display: none !important; /* esconde a linha vertical */
+  }
+  /* arredondamento dos cards em mobile (eram corners conectados) */
+  .compare-grid > *:first-child {
+    border-radius: 16px 16px 0 0 !important;
+  }
+  .compare-grid > *:last-child {
+    border-radius: 0 0 16px 16px !important;
+  }
+}

@@ -440,7 +440,7 @@ function openModal(siteKey) {
 
   modalTitle.textContent = data.title;
   demoUrl.textContent = data.url;
-  modalBuyBtn.href = `https://wa.me/5511999999999?text=${data.wa}`;
+  modalBuyBtn.href = `https://wa.me/5511914969488?text=${data.wa}`;
   
   browserBody.innerHTML = '';
   const preview = document.createElement('div');
