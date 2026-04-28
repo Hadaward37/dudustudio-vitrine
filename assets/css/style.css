@@ -2583,7 +2583,8 @@ details[open] summary span {
 
 /* Sites completos grid — mobile override para inline-style 2 colunas */
 @media (max-width: 768px) {
-  #sites .vitrine-grid {
+  #sites .vitrine-grid,
+  #vitrine .vitrine-grid {
     grid-template-columns: 1fr !important;
   }
 }
