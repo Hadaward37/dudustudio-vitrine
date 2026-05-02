@@ -8,7 +8,7 @@ const packages = [
   {
     name: 'Ensaio',
     price: 'R$ 1.500',
-    image: '/images/portrait-5.jpg',
+    image: './images/portrait-5.jpg',
     features: [
       '2 horas de sessão',
       '50 fotos editadas',
@@ -21,7 +21,7 @@ const packages = [
   {
     name: 'Evento',
     price: 'R$ 3.500',
-    image: '/images/wedding-6.jpg',
+    image: './images/wedding-6.jpg',
     features: [
       '6 horas de cobertura',
       '200 fotos editadas',
@@ -34,7 +34,7 @@ const packages = [
   {
     name: 'Casamento',
     price: 'R$ 8.000',
-    image: '/images/wedding-5.jpg',
+    image: './images/wedding-5.jpg',
     features: [
       '12 horas de cobertura',
       '500+ fotos editadas',

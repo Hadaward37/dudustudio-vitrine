@@ -5,15 +5,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const instagramImages = [
-  '/images/wedding-1.jpg',
-  '/images/portrait-1.jpg',
-  '/images/wedding-2.jpg',
-  '/images/portrait-2.jpg',
-  '/images/event-1.jpg',
-  '/images/wedding-4.jpg',
-  '/images/corporate-1.jpg',
-  '/images/portrait-4.jpg',
-  '/images/wedding-3.jpg',
+  './images/wedding-1.jpg',
+  './images/portrait-1.jpg',
+  './images/wedding-2.jpg',
+  './images/portrait-2.jpg',
+  './images/event-1.jpg',
+  './images/wedding-4.jpg',
+  './images/corporate-1.jpg',
+  './images/portrait-4.jpg',
+  './images/wedding-3.jpg',
 ];
 
 export default function Instagram() {

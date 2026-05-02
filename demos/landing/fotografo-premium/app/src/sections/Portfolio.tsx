@@ -15,18 +15,18 @@ interface Photo {
 }
 
 const photos: Photo[] = [
-  { id: 1, src: '/images/wedding-1.jpg', title: 'Jardim de Rosas', category: 'Casamentos', aspect: 'aspect-[3/4]' },
-  { id: 2, src: '/images/portrait-1.jpg', title: 'Elegância em Ouro', category: 'Ensaios', aspect: 'aspect-[3/4]' },
-  { id: 3, src: '/images/event-1.jpg', title: 'Noite de Gala', category: 'Eventos', aspect: 'aspect-[16/9]' },
-  { id: 4, src: '/images/wedding-2.jpg', title: 'Vinhedo ao Pôr do Sol', category: 'Casamentos', aspect: 'aspect-[4/3]' },
-  { id: 5, src: '/images/portrait-2.jpg', title: 'Olhar Intenso', category: 'Ensaios', aspect: 'aspect-[3/4]' },
-  { id: 6, src: '/images/event-2.jpg', title: 'Show ao Vivo', category: 'Eventos', aspect: 'aspect-[4/3]' },
-  { id: 7, src: '/images/wedding-3.jpg', title: 'Aisle de Velas', category: 'Casamentos', aspect: 'aspect-[3/4]' },
-  { id: 8, src: '/images/corporate-1.jpg', title: 'CEO Portrait', category: 'Corporativo', aspect: 'aspect-square' },
-  { id: 9, src: '/images/wedding-4.jpg', title: 'Detalhes em Flor', category: 'Casamentos', aspect: 'aspect-square' },
-  { id: 10, src: '/images/portrait-3.jpg', title: 'Beleza Atemporal', category: 'Ensaios', aspect: 'aspect-[3/4]' },
-  { id: 11, src: '/images/corporate-2.jpg', title: 'Luxo em Produto', category: 'Corporativo', aspect: 'aspect-[3/4]' },
-  { id: 12, src: '/images/portrait-4.jpg', title: 'Vermelho Majestoso', category: 'Ensaios', aspect: 'aspect-[3/4]' },
+  { id: 1, src: './images/wedding-1.jpg', title: 'Jardim de Rosas', category: 'Casamentos', aspect: 'aspect-[3/4]' },
+  { id: 2, src: './images/portrait-1.jpg', title: 'Elegância em Ouro', category: 'Ensaios', aspect: 'aspect-[3/4]' },
+  { id: 3, src: './images/event-1.jpg', title: 'Noite de Gala', category: 'Eventos', aspect: 'aspect-[16/9]' },
+  { id: 4, src: './images/wedding-2.jpg', title: 'Vinhedo ao Pôr do Sol', category: 'Casamentos', aspect: 'aspect-[4/3]' },
+  { id: 5, src: './images/portrait-2.jpg', title: 'Olhar Intenso', category: 'Ensaios', aspect: 'aspect-[3/4]' },
+  { id: 6, src: './images/event-2.jpg', title: 'Show ao Vivo', category: 'Eventos', aspect: 'aspect-[4/3]' },
+  { id: 7, src: './images/wedding-3.jpg', title: 'Aisle de Velas', category: 'Casamentos', aspect: 'aspect-[3/4]' },
+  { id: 8, src: './images/corporate-1.jpg', title: 'CEO Portrait', category: 'Corporativo', aspect: 'aspect-square' },
+  { id: 9, src: './images/wedding-4.jpg', title: 'Detalhes em Flor', category: 'Casamentos', aspect: 'aspect-square' },
+  { id: 10, src: './images/portrait-3.jpg', title: 'Beleza Atemporal', category: 'Ensaios', aspect: 'aspect-[3/4]' },
+  { id: 11, src: './images/corporate-2.jpg', title: 'Luxo em Produto', category: 'Corporativo', aspect: 'aspect-[3/4]' },
+  { id: 12, src: './images/portrait-4.jpg', title: 'Vermelho Majestoso', category: 'Ensaios', aspect: 'aspect-[3/4]' },
 ];
 
 const filters: Category[] = ['Todos', 'Casamentos', 'Ensaios', 'Eventos', 'Corporativo'];

@@ -3,14 +3,14 @@ import { MoveHorizontal } from 'lucide-react';
 
 const galleryItems = [
   {
-    before: '/assets/antes-1.jpg',
-    after: '/assets/depois-1.jpg',
+    before: './assets/antes-1.jpg',
+    after: './assets/depois-1.jpg',
     title: 'Restauracao de Pintura',
     description: 'Polimento e vitrificacao ceramica - brilho espelhado',
   },
   {
-    before: '/assets/antes-2.jpg',
-    after: '/assets/depois-2.jpg',
+    before: './assets/antes-2.jpg',
+    after: './assets/depois-2.jpg',
     title: 'Higienizacao Interna',
     description: 'Limpeza profunda e sanitizacao do interior completo',
   },
@@ -148,10 +148,10 @@ export default function Gallery() {
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            '/assets/antes-1.jpg',
-            '/assets/depois-1.jpg',
-            '/assets/antes-2.jpg',
-            '/assets/depois-2.jpg',
+            './assets/antes-1.jpg',
+            './assets/depois-1.jpg',
+            './assets/antes-2.jpg',
+            './assets/depois-2.jpg',
           ].map((src, i) => (
             <div
               key={i}

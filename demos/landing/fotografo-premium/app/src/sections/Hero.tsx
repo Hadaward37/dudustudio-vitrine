@@ -109,7 +109,7 @@ export default function Hero() {
         ref={bgRef}
         className="absolute inset-0 w-full h-[130%] -top-[15%]"
         style={{
-          backgroundImage: 'url(/images/hero-bg.jpg)',
+          backgroundImage: 'url(./images/hero-bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           willChange: 'transform',

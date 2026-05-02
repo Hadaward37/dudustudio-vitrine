@@ -97,7 +97,7 @@ export default function About() {
           <div className="about-photo relative">
             <div className="relative overflow-hidden">
               <img
-                src="/images/photographer.jpg"
+                src="./images/photographer.jpg"
                 alt="Lucas Mendes - Fotógrafo"
                 className="w-full aspect-[3/4] object-cover"
                 loading="lazy"

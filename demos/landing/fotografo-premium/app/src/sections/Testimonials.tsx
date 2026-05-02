@@ -7,17 +7,17 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
   {
     name: 'Mariana Silva',
-    image: '/images/client-1.jpg',
+    image: './images/client-1.jpg',
     text: 'Lucas tem um dom de capturar a essência de cada momento. Nossas fotos de casamento são verdadeiras obras de arte.',
   },
   {
     name: 'Ricardo Mendonça',
-    image: '/images/client-2.jpg',
+    image: './images/client-2.jpg',
     text: 'Profissionalismo impecável. As fotos do nosso evento corporativo superaram todas as expectativas.',
   },
   {
     name: 'Camila & Pedro',
-    image: '/images/client-3.jpg',
+    image: './images/client-3.jpg',
     text: 'O ensaio pré-wedding ficou mágico. Cada foto conta uma história. Recomendamos de olhos fechados!',
   },
 ];

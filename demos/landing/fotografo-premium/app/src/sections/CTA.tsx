@@ -48,7 +48,7 @@ export default function CTA() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'url(/images/cta-bg.jpg)',
+          backgroundImage: 'url(./images/cta-bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

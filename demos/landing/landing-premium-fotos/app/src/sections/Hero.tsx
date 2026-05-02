@@ -55,7 +55,7 @@ export default function Hero() {
     >
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/hero-bg.jpg"
+          src="./assets/hero-bg.jpg"
           alt=""
           className="w-full h-full object-cover"
         />

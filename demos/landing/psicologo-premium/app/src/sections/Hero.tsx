@@ -76,7 +76,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/hero-bg.jpg"
+          src="./assets/hero-bg.jpg"
           alt="Folhagem verde suave"
           className="w-full h-full object-cover"
           loading="eager"

@@ -16,7 +16,7 @@ export default function Sobre() {
           <div className="reveal-scale order-1">
             <div className="relative mx-auto max-w-sm lg:max-w-none">
               <img
-                src="/assets/about-photo.jpg"
+                src="./assets/about-photo.jpg"
                 alt="Dra. Ana Lima - Psicóloga Clínica"
                 className="w-full rounded-3xl shadow-[0_12px_48px_rgba(45,58,46,0.15)] border-4 border-white/20 object-cover aspect-[3/4]"
                 loading="lazy"
