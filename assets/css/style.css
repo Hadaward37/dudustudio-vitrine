@@ -730,10 +730,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   display: flex;
   flex-direction: column;
 }
-.site-card:hover {
-  border-color: var(--border);
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-gold);
+@media (hover: hover) and (pointer: fine) {
+  .site-card:hover {
+    border-color: var(--border);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-gold);
+  }
 }
 
 .card-image-wrap {
@@ -745,7 +747,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   width: 100%; height: 100%;
   transition: transform .6s cubic-bezier(.4,0,.2,1);
 }
-.site-card:hover .card-image { transform: scale(1.04); }
+@media (hover: hover) and (pointer: fine) {
+  .site-card:hover .card-image { transform: scale(1.04); }
+}
 
 /* Preview UI inside card */
 .card-preview-ui {
@@ -804,7 +808,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   opacity: 0;
   transition: opacity .35s;
 }
-.site-card:hover .card-overlay { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .site-card:hover .card-overlay { opacity: 1; }
+}
 
 /* Badge */
 .card-badge {
@@ -2207,9 +2213,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   z-index: 0;
 }
 
-.site-card:hover::after {
-  opacity: 1;
-  animation: shimmerCard 2s linear infinite;
+@media (hover: hover) and (pointer: fine) {
+  .site-card:hover::after {
+    opacity: 1;
+    animation: shimmerCard 2s linear infinite;
+  }
 }
 
 @keyframes shimmerCard {
