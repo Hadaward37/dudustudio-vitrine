@@ -1,0 +1,248 @@
+/* ========== Google Fonts ========== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ========== Design Tokens ========== */
+    --color-bg: #F5F0E8;
+    --color-sage: #7D9B76;
+    --color-sage-dark: #6A8564;
+    --color-sage-darker: #5A7A5A;
+    --color-white: #FFFFFF;
+    --color-gold: #C9A84C;
+
+    --color-text-primary: #2D3A2E;
+    --color-text-secondary: #5A6B5C;
+    --color-text-tertiary: #8A9B8C;
+
+    --shadow-card: 0 4px 24px rgba(45, 58, 46, 0.06);
+    --shadow-card-hover: 0 8px 32px rgba(45, 58, 46, 0.10);
+    --shadow-btn: 0 2px 12px rgba(125, 155, 118, 0.25);
+    --shadow-btn-hover: 0 4px 20px rgba(125, 155, 118, 0.35);
+    --shadow-image: 0 8px 32px rgba(45, 58, 46, 0.08);
+    --shadow-fab: 0 4px 16px rgba(37, 211, 102, 0.35);
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-smooth: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* shadcn defaults */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+/* ========== Scroll Reveal Animations ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* Fade In only (no translate) */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-in-out-smooth);
+}
+
+.reveal-fade.revealed {
+  opacity: 1;
+}
+
+/* Scale In */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.9s var(--ease-out-quart), transform 0.9s var(--ease-out-quart);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ========== Pulse Animation for Online Badge ========== */
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+/* ========== Bounce Animation for Scroll Indicator ========== */
+@keyframes bounce-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.bounce-indicator {
+  animation: bounce-down 2s ease-in-out infinite;
+}
+
+/* ========== FAB Pulse ========== */
+@keyframes fab-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.fab-pulse {
+  animation: fab-pulse 2s ease-in-out infinite;
+}
+
+/* ========== Connecting Line Animation ========== */
+.reveal-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s var(--ease-out-expo);
+}
+
+.reveal-line.revealed {
+  transform: scaleX(1);
+}
+
+/* ========== FAQ Accordion ========== */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s var(--ease-in-out-smooth),
+              opacity 0.4s var(--ease-in-out-smooth),
+              padding 0.4s var(--ease-in-out-smooth);
+}
+
+.faq-answer.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-icon {
+  transition: transform 0.3s var(--ease-in-out-smooth);
+}
+
+.faq-icon.rotate {
+  transform: rotate(45deg);
+}
+
+/* ========== Nav Link Underline ========== */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ========== Mobile Menu ========== */
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* ========== Custom Focus ========== */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 2px;
+}
+
+/* ========== Reduced Motion ========== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fade,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pulse-dot,
+  .bounce-indicator,
+  .fab-pulse {
+    animation: none;
+  }
+}
