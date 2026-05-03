@@ -18,18 +18,24 @@ export default function Footer() {
             <span className="font-mono text-[10px] tracking-[0.15em] text-[#555555] uppercase mb-2">
               Navegação
             </span>
-            {['Portfólio', 'Sobre', 'Pacotes', 'Processo', 'Contato'].map(link => (
+            {[
+              { label: 'Portfólio', id: 'portfolio' },
+              { label: 'Sobre',     id: 'about'     },
+              { label: 'Pacotes',   id: 'packages'  },
+              { label: 'Processo',  id: 'process'   },
+              { label: 'Contato',   id: 'cta'       },
+            ].map(link => (
               <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+                key={link.id}
+                href={`#${link.id}`}
                 onClick={e => {
                   e.preventDefault();
-                  const el = document.getElementById(link.toLowerCase());
+                  const el = document.getElementById(link.id);
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="font-sans text-sm text-[#888888] hover:text-[#F5F5F0] transition-colors w-fit"
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
