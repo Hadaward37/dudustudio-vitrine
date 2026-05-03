@@ -17,7 +17,7 @@ export default function Sobre() {
             <div className="relative mx-auto max-w-sm lg:max-w-none">
               <img
                 src="./assets/about-photo.jpg"
-                alt="Dra. Ana Lima - Psicóloga Clínica"
+                alt="Dra. Sofia Martins - Psicóloga Clínica"
                 className="w-full rounded-3xl shadow-[0_12px_48px_rgba(45,58,46,0.15)] border-4 border-white/20 object-cover aspect-[3/4]"
                 loading="lazy"
               />
@@ -31,7 +31,7 @@ export default function Sobre() {
             </span>
 
             <h2 className="reveal reveal-delay-1 font-serif text-[32px] md:text-[44px] text-white leading-[1.15] mb-2">
-              Dra. Ana Lima
+              Dra. Sofia Martins
             </h2>
 
             <p className="reveal reveal-delay-2 text-sm text-white/70 mb-6">
@@ -40,7 +40,7 @@ export default function Sobre() {
 
             <div className="reveal reveal-delay-3 space-y-4 text-white/90 font-light text-[15px] md:text-[17px] leading-[1.7] max-w-lg mx-auto lg:mx-0">
               <p>
-                Olá! Sou a Ana, psicóloga clínica com mais de 10 anos de experiência ajudando pessoas a
+                Olá! Sou a Sofia, psicóloga clínica com mais de 10 anos de experiência ajudando pessoas a
                 navegarem pelos desafios da vida com mais leveza e autoconhecimento.
               </p>
               <p>

@@ -124,7 +124,7 @@ export default function Hero() {
           Agende sua primeira consulta e dê o primeiro passo.
           <br />
           <span className="text-text-tertiary text-sm mt-2 block">
-            — Dra. Ana Lima | CRP 06/123456
+            — Dra. Sofia Martins | CRP 06/123456
           </span>
         </p>
 

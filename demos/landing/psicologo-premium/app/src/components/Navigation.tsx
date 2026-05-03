@@ -50,7 +50,7 @@ export default function Navigation() {
               }}
               className="font-serif font-medium text-xl text-text-primary tracking-tight"
             >
-              Dra. Ana Lima
+              Dra. Sofia Martins
             </a>
 
             {/* Desktop Nav */}

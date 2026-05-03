@@ -1,7 +1,6 @@
-import { MessageCircle, Instagram } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 const WHATSAPP_LINK = 'https://wa.me/5511914969488?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta.';
-const INSTAGRAM_LINK = 'https://instagram.com/dra.analima';
 
 const footerLinks = [
   { label: 'Início', href: '#hero' },
@@ -25,7 +24,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Col 1 - Brand */}
           <div>
-            <h3 className="font-serif text-[28px] text-white">Dra. Ana Lima</h3>
+            <h3 className="font-serif text-[28px] text-white">Dra. Sofia Martins</h3>
             <p className="mt-2 text-[15px] font-light text-text-tertiary">Psicóloga Clínica</p>
             <p className="mt-3 text-[13px] font-normal text-gold">CRP 06/123456</p>
           </div>
@@ -70,17 +69,6 @@ export default function Footer() {
                   (11) 99999-9999
                 </a>
               </li>
-              <li>
-                <a
-                  href={INSTAGRAM_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-normal text-white hover:text-gold transition-colors duration-300"
-                >
-                  <Instagram size={16} />
-                  @dra.analima
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -91,7 +79,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs font-light text-text-tertiary text-center md:text-left">
-            © 2024 Dra. Ana Lima. Todos os direitos reservados.
+            © 2024 Dra. Sofia Martins. Todos os direitos reservados.
           </p>
           <p className="text-xs font-light text-text-tertiary text-center md:text-right">
             Sigilo garantido conforme o CFP

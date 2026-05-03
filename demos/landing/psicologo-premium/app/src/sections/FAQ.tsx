@@ -25,7 +25,7 @@ const faqs = [
   {
     question: 'Como agendar uma consulta?',
     answer:
-      'É muito simples! Basta clicar no botão do WhatsApp, enviar uma mensagem com seu nome e disponibilidade de horários. Responderei o mais rápido possível para confirmarmos sua primeira consulta. Você também pode me enviar um Direct no Instagram.',
+      'É muito simples! Basta clicar no botão do WhatsApp, enviar uma mensagem com seu nome e disponibilidade de horários. Responderei o mais rápido possível para confirmarmos sua primeira consulta.',
   },
 ];
 

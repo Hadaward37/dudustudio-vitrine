@@ -3,14 +3,14 @@ import { Star } from 'lucide-react';
 const testimonials = [
   {
     quote:
-      'A Dra. Ana mudou minha vida. Depois de anos lutando contra a ansiedade, finalmente encontrei alguém que me entendeu e me deu ferramentas reais para melhorar. Hoje me sinto uma pessoa completamente diferente.',
+      'A Dra. Sofia mudou minha vida. Depois de anos lutando contra a ansiedade, finalmente encontrei alguém que me entendeu e me deu ferramentas reais para melhorar. Hoje me sinto uma pessoa completamente diferente.',
     author: 'M. S.',
     time: 'Paciente há 1 ano',
     initials: 'MS',
   },
   {
     quote:
-      'O atendimento online é extremamente prático e não perde em nada em relação ao presencial. A Ana é uma profissional incrível, muito atenciosa e empática. Recomendo de olhos fechados!',
+      'O atendimento online é extremamente prático e não perde em nada em relação ao presencial. A Sofia é uma profissional incrível, muito atenciosa e empática. Recomendo de olhos fechados!',
     author: 'J. R.',
     time: 'Paciente há 8 meses',
     initials: 'JR',
