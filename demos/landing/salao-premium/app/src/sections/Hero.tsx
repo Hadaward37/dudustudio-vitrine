@@ -63,11 +63,9 @@ export default function Hero() {
 
           <a
             ref={btnRef}
-            href="#agendamento"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector('#agendamento')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+            href="https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20experi%C3%AAncia%20no%20sal%C3%A3o."
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-ghost inline-block opacity-0"
           >
             Agende sua experiência

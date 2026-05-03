@@ -71,8 +71,9 @@ export default function Navigation() {
           </div>
 
           <a
-            href="#agendamento"
-            onClick={(e) => { e.preventDefault(); scrollTo('#agendamento'); }}
+            href="https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20no%20sal%C3%A3o."
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:block btn-ghost py-2 px-5 text-xs"
           >
             Agendar
@@ -104,8 +105,9 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="#agendamento"
-            onClick={(e) => { e.preventDefault(); scrollTo('#agendamento'); }}
+            href="https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20no%20sal%C3%A3o."
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-ghost mt-4"
           >
             Agendar
