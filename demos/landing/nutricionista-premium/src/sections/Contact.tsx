@@ -6,8 +6,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'WhatsApp',
-    value: '(11) 98765-4321',
-    href: 'https://wa.me/5511987654321',
+    value: '(11) 91496-9488',
+    href: 'https://wa.me/5511914969488',
   },
   {
     icon: Instagram,

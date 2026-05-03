@@ -15,7 +15,7 @@ const footerLinks = {
   ],
   social: [
     { label: 'Instagram', href: 'https://instagram.com/dra.anasilva.nutri' },
-    { label: 'WhatsApp', href: 'https://wa.me/5511987654321' },
+    { label: 'WhatsApp', href: 'https://wa.me/5511914969488' },
     { label: 'LinkedIn', href: '#' },
   ],
 };

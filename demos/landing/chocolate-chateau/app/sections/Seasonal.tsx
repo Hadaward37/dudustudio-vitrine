@@ -59,6 +59,7 @@ export default function Seasonal() {
   return (
     <>
       <section
+        id="seasonal"
         ref={sectionRef}
         className="bg-[#F5F0EB] py-20 md:py-32 px-4 md:px-12"
       >

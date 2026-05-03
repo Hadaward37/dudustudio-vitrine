@@ -25,6 +25,18 @@
     <script src="../../assets/js/security.js"></script>
     <script>if (typeof DuduShield !== 'undefined') { DuduShield.init({ isDemoPage: true }); }</script>
 
+    <!-- Redireciona "Enviar Pedido" para WhatsApp DuduStudio -->
+    <script>
+      document.addEventListener('submit', function(e) {
+        var btn = e.target.querySelector('button[type="submit"]');
+        if (btn && btn.textContent.trim().includes('Enviar Pedido')) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          window.open('https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20encomenda%20na%20Bella%20Do%C3%A7es.', '_blank');
+        }
+      }, true);
+    </script>
+
     <!-- ===== BANNER DE DEMO ===== -->
     <div style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:rgba(5,5,8,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(37,99,235,0.3);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif">
       <div style="display:flex;align-items:center;gap:10px">

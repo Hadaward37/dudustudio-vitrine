@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme inline {
   --color-dark-chocolate: #2C1810;
   --color-cocoa-brown: #3D2314;

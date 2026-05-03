@@ -27,6 +27,18 @@
     <script src="../../assets/js/security.js"></script>
     <script>if (typeof DuduShield !== 'undefined') { DuduShield.init({ isDemoPage: true }); }</script>
 
+    <!-- Redireciona "Saiba mais" dos serviços para WhatsApp DuduStudio -->
+    <script>
+      document.addEventListener('click', function(e) {
+        var btn = e.target.closest('button');
+        if (btn && btn.textContent.trim().toLowerCase().includes('saiba mais')) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          window.open('https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20jur%C3%ADdicos.', '_blank');
+        }
+      }, true);
+    </script>
+
     <!-- ===== BANNER DE DEMO ===== -->
     <div style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:rgba(5,5,8,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(184,139,61,0.3);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif">
       <div style="display:flex;align-items:center;gap:10px">

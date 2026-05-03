@@ -3,14 +3,13 @@
 import { useState } from 'react';
 import { useCart } from '@/app/hooks/useCart';
 import { useToast } from '@/app/hooks/useToast';
-import { CheckoutStep, DeliveryData, PaymentData } from '@/app/types';
+import { CheckoutStep, DeliveryData } from '@/app/types';
 import { formatPrice } from '@/app/lib/utils';
-import { X, Check, ArrowLeft, ArrowRight, Truck, CreditCard, QrCode, Package, IceCreamCone } from 'lucide-react';
+import { X, Check, ArrowLeft, ArrowRight, Truck, MessageCircle, Package, IceCreamCone } from 'lucide-react';
 
 const STEPS: { key: CheckoutStep; label: string; icon: React.ReactNode }[] = [
   { key: 'delivery', label: 'Entrega', icon: <Truck size={16} /> },
-  { key: 'payment', label: 'Pagamento', icon: <CreditCard size={16} /> },
-  { key: 'review', label: 'Revisão', icon: <Package size={16} /> },
+  { key: 'payment', label: 'Pedido', icon: <MessageCircle size={16} /> },
   { key: 'confirmation', label: 'Confirmação', icon: <Check size={16} /> },
 ];
 
@@ -29,9 +28,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
   const [delivery, setDelivery] = useState<DeliveryData>({
     email: '', fullName: '', address: '', city: '', state: '', cep: '', phone: ''
   });
-  const [payment, setPayment] = useState<PaymentData>({ method: 'credit_card' });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isProcessing, setIsProcessing] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
   const { items, subtotal, shipping, total, clearCart } = useCart();
@@ -52,31 +49,8 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const validatePayment = () => {
-    if (payment.method === 'pix') return true;
-    const newErrors: Record<string, string> = {};
-    if (!payment.cardNumber || payment.cardNumber.length < 16) newErrors.cardNumber = 'Número inválido';
-    if (!payment.cardName) newErrors.cardName = 'Nome obrigatório';
-    if (!payment.expiry) newErrors.expiry = 'Data inválida';
-    if (!payment.cvv || payment.cvv.length < 3) newErrors.cvv = 'CVV inválido';
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleNext = () => {
     if (step === 'delivery' && !validateDelivery()) return;
-    if (step === 'payment' && !validatePayment()) return;
-    if (step === 'review') {
-      setIsProcessing(true);
-      setTimeout(() => {
-        setIsProcessing(false);
-        setStep('confirmation');
-        setShowConfetti(true);
-        clearCart();
-        addToast('Pedido confirmado com sucesso!', 'success');
-      }, 2000);
-      return;
-    }
     const nextIndex = currentStepIndex + 1;
     if (nextIndex < STEPS.length) {
       setStep(STEPS[nextIndex].key);
@@ -90,6 +64,33 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
       setStep(STEPS[prevIndex].key);
       setErrors({});
     }
+  };
+
+  const enviarPedidoWhatsapp = () => {
+    let mensagem = '🍫 *Olá! Quero fazer um pedido na Chocolaterie Château:*\n\n';
+
+    items.forEach(item => {
+      mensagem += `• ${item.quantity}x ${item.name} — ${formatPrice(item.price * item.quantity)}\n`;
+    });
+
+    mensagem += `\n*Subtotal:* ${formatPrice(subtotal)}`;
+    mensagem += `\n*Frete:* ${shipping === 0 ? 'Grátis' : formatPrice(shipping)}`;
+    mensagem += `\n*Total:* ${formatPrice(total)}`;
+
+    if (delivery.fullName) {
+      mensagem += `\n\n*Entrega:*\n${delivery.fullName}\n${delivery.address}\n${delivery.city} — ${delivery.state}\nCEP: ${delivery.cep}`;
+      if (delivery.phone) mensagem += `\nTel: ${delivery.phone}`;
+    }
+
+    mensagem += '\n\n_Pedido feito pelo site_';
+
+    const numero = '5511914969488';
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
+
+    clearCart();
+    addToast('Pedido enviado pelo WhatsApp!', 'success');
+    setShowConfetti(true);
+    setStep('confirmation');
   };
 
   if (!isOpen) return null;
@@ -216,86 +217,29 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
 
           {step === 'payment' && (
             <div className="space-y-4">
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setPayment({ ...payment, method: 'credit_card' })}
-                  className={`flex-1 p-4 rounded-lg border-2 text-center transition-colors ${
-                    payment.method === 'credit_card'
-                      ? 'border-[#C4A77D] bg-[#C4A77D]/10'
-                      : 'border-[#C4A77D]/20 hover:border-[#C4A77D]/40'
-                  }`}
-                >
-                  <CreditCard size={24} className="mx-auto mb-2 text-[#2C1810]" />
-                  <span className="text-sm font-medium">Cartão de Crédito</span>
-                </button>
-                <button
-                  onClick={() => setPayment({ ...payment, method: 'pix' })}
-                  className={`flex-1 p-4 rounded-lg border-2 text-center transition-colors ${
-                    payment.method === 'pix'
-                      ? 'border-[#C4A77D] bg-[#C4A77D]/10'
-                      : 'border-[#C4A77D]/20 hover:border-[#C4A77D]/40'
-                  }`}
-                >
-                  <QrCode size={24} className="mx-auto mb-2 text-[#2C1810]" />
-                  <span className="text-sm font-medium">PIX</span>
-                </button>
+              {/* WhatsApp panel */}
+              <div
+                className="rounded-xl p-5 text-center"
+                style={{ background: 'rgba(44,24,16,.05)', border: '1px solid rgba(196,167,125,.2)' }}
+              >
+                <div className="text-4xl mb-3">💬</div>
+                <p className="text-base font-semibold text-[#2C1810] mb-2">
+                  Finalize pelo WhatsApp
+                </p>
+                <p className="text-sm text-[#8B7355] mb-4 leading-relaxed">
+                  Clique no botão abaixo e envie seu pedido.<br />
+                  Respondemos em até 30 minutos!
+                </p>
               </div>
 
-              {payment.method === 'credit_card' && (
-                <div className="space-y-4">
-                  <Input
-                    label="Número do cartão"
-                    value={payment.cardNumber || ''}
-                    onChange={v => setPayment({ ...payment, cardNumber: v.replace(/\D/g, '').slice(0, 16) })}
-                    error={errors.cardNumber}
-                    placeholder="0000 0000 0000 0000"
-                  />
-                  <Input
-                    label="Nome no cartão"
-                    value={payment.cardName || ''}
-                    onChange={v => setPayment({ ...payment, cardName: v })}
-                    error={errors.cardName}
-                  />
-                  <div className="grid grid-cols-2 gap-4">
-                    <Input
-                      label="Validade"
-                      value={payment.expiry || ''}
-                      onChange={v => setPayment({ ...payment, expiry: v })}
-                      error={errors.expiry}
-                      placeholder="MM/AA"
-                      maxLength={5}
-                    />
-                    <Input
-                      label="CVV"
-                      value={payment.cvv || ''}
-                      onChange={v => setPayment({ ...payment, cvv: v.replace(/\D/g, '').slice(0, 4) })}
-                      error={errors.cvv}
-                      placeholder="123"
-                      maxLength={4}
-                    />
-                  </div>
-                </div>
-              )}
-
-              {payment.method === 'pix' && (
-                <div className="p-8 bg-white/50 rounded-lg border border-[#C4A77D]/30 text-center">
-                  <QrCode size={120} className="mx-auto mb-4 text-[#2C1810]" />
-                  <p className="text-sm text-[#8B7355] mb-2">Escaneie o QR code com seu app bancário</p>
-                  <p className="font-mono text-sm">chocolaterie-chateau-pix@example.com</p>
-                </div>
-              )}
-            </div>
-          )}
-
-          {step === 'review' && (
-            <div className="space-y-6">
+              {/* Order summary preview */}
               <div className="p-4 bg-white/50 rounded-lg">
-                <h3 className="font-medium mb-3">Itens do pedido</h3>
-                <div className="space-y-2">
+                <h3 className="font-medium text-sm mb-3">Resumo do pedido</h3>
+                <div className="space-y-1.5">
                   {items.map(item => (
                     <div key={item.id} className="flex justify-between text-sm">
-                      <span>{item.quantity}x {item.name}</span>
-                      <span className="font-mono">{formatPrice(item.price * item.quantity)}</span>
+                      <span className="text-[#2C1810]">{item.quantity}x {item.name}</span>
+                      <span className="font-mono text-[#8B7355]">{formatPrice(item.price * item.quantity)}</span>
                     </div>
                   ))}
                 </div>
@@ -305,34 +249,26 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
                     <span className="font-mono">{formatPrice(subtotal)}</span>
                   </div>
                   <div className="flex justify-between text-sm text-[#8B7355]">
-                    <span>Entrega</span>
+                    <span>Frete</span>
                     <span className="font-mono">{shipping === 0 ? 'Grátis' : formatPrice(shipping)}</span>
                   </div>
-                  <div className="flex justify-between font-medium pt-1">
+                  <div className="flex justify-between font-semibold pt-1">
                     <span>Total</span>
                     <span className="font-mono">{formatPrice(total)}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 bg-white/50 rounded-lg">
-                <h3 className="font-medium mb-2">Endereço de entrega</h3>
-                <p className="text-sm text-[#8B7355]">
-                  {delivery.fullName}<br />
-                  {delivery.address}<br />
-                  {delivery.city} — {delivery.state}<br />
-                  CEP: {delivery.cep}
-                </p>
-              </div>
-
-              <div className="p-4 bg-white/50 rounded-lg">
-                <h3 className="font-medium mb-2">Pagamento</h3>
-                <p className="text-sm text-[#8B7355]">
-                  {payment.method === 'credit_card'
-                    ? `Cartão de crédito **** ${payment.cardNumber?.slice(-4) || '0000'}`
-                    : 'PIX (QR Code)'}
-                </p>
-              </div>
+              {delivery.fullName && (
+                <div className="p-4 bg-white/50 rounded-lg">
+                  <h3 className="font-medium text-sm mb-2">Endereço de entrega</h3>
+                  <p className="text-sm text-[#8B7355]">
+                    {delivery.fullName}<br />
+                    {delivery.address}<br />
+                    {delivery.city} — {delivery.state} · CEP: {delivery.cep}
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -341,16 +277,19 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#4A7C59]/15 flex items-center justify-center">
                 <Check size={36} className="text-[#4A7C59]" />
               </div>
-              <h2 className="font-serif text-2xl mb-2">Pedido Confirmado!</h2>
+              <h2 className="font-serif text-2xl mb-2">Pedido Enviado!</h2>
               <p className="text-[#8B7355] mb-6">
-                Obrigado por escolher a Chocolaterie Château
+                Seu pedido foi enviado pelo WhatsApp.<br />
+                Respondemos em até 30 minutos.
               </p>
-              <div className="p-4 bg-white/50 rounded-lg mb-6">
-                <p className="text-sm text-[#8B7355] mb-1">Número do pedido</p>
-                <p className="font-mono text-lg">{Math.random().toString(36).substring(2, 10).toUpperCase()}</p>
+              <div className="p-4 bg-white/50 rounded-lg mb-6 text-left">
+                <p className="text-sm text-[#8B7355] mb-1 font-medium">Chocolaterie Château</p>
+                <p className="text-sm text-[#8B7355]">
+                  Acompanhe a confirmação diretamente no WhatsApp.
+                </p>
               </div>
               <p className="text-sm text-[#8B7355]">
-                Entrega prevista em 2-3 dias úteis para São Paulo e Rio de Janeiro
+                Entrega refrigerada em São Paulo e Rio de Janeiro
               </p>
               <button
                 onClick={onClose}
@@ -361,22 +300,32 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
             </div>
           )}
 
-          {step !== 'confirmation' && (
+          {/* Action button */}
+          {step === 'payment' ? (
+            <button
+              onClick={enviarPedidoWhatsapp}
+              className="mt-6 w-full py-4 text-white font-bold rounded-full flex items-center justify-center gap-2.5 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              style={{
+                background: 'linear-gradient(135deg, #25d366, #128C7E)',
+                boxShadow: 'none',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 8px 25px rgba(37,211,102,.35)')}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Enviar pedido pelo WhatsApp
+            </button>
+          ) : step !== 'confirmation' ? (
             <button
               onClick={handleNext}
-              disabled={isProcessing}
-              className="mt-6 w-full py-4 bg-[#C4A77D] text-[#2C1810] font-medium rounded-full hover:bg-[#B8976A] transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+              className="mt-6 w-full py-4 bg-[#C4A77D] text-[#2C1810] font-medium rounded-full hover:bg-[#B8976A] transition-colors flex items-center justify-center gap-2"
             >
-              {isProcessing ? (
-                <div className="w-5 h-5 border-2 border-[#2C1810]/30 border-t-[#2C1810] rounded-full animate-spin" />
-              ) : (
-                <>
-                  {step === 'review' ? 'Confirmar Pedido' : 'Continuar'}
-                  <ArrowRight size={18} />
-                </>
-              )}
+              Continuar
+              <ArrowRight size={18} />
             </button>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

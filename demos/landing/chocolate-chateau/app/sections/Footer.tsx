@@ -1,4 +1,18 @@
-import { Camera, MessageCircle, Mail } from 'lucide-react';
+import { Camera, MessageCircle } from 'lucide-react';
+
+const EXPLORE_LINKS = [
+  { label: 'Todos os Chocolates', href: '#all-chocolates' },
+  { label: 'Coleções', href: '#featured' },
+  { label: 'Bean to Bar', href: '#bean-to-bar' },
+  { label: 'Sobre Nós', href: '#bean-to-bar' },
+];
+
+const SUPPORT_LINKS = [
+  { label: 'Entrega e Frete', href: '#' },
+  { label: 'Trocas e Devoluções', href: '#' },
+  { label: 'Perguntas Frequentes', href: '#' },
+  { label: 'Fale Conosco', href: 'https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Chocolaterie%20Ch%C3%A2teau.' },
+];
 
 export default function Footer() {
   return (
@@ -14,10 +28,16 @@ export default function Footer() {
               Do Grão ao Bombom
             </p>
             <div className="flex items-center gap-3">
-              <a href="#" className="text-[#F5F0EB]/60 hover:text-[#C4A77D] transition-colors">
+              <a href="#" className="text-[#F5F0EB]/60 hover:text-[#C4A77D] transition-colors" aria-label="Instagram">
                 <Camera size={20} />
               </a>
-              <a href="#" className="text-[#F5F0EB]/60 hover:text-[#C4A77D] transition-colors">
+              <a
+                href="https://wa.me/5511914969488"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F5F0EB]/60 hover:text-[#C4A77D] transition-colors"
+                aria-label="WhatsApp"
+              >
                 <MessageCircle size={20} />
               </a>
             </div>
@@ -27,10 +47,10 @@ export default function Footer() {
           <div>
             <h4 className="font-medium text-sm text-[#F5F0EB] mb-4">Explorar</h4>
             <ul className="space-y-2">
-              {['Todos os Chocolates', 'Coleções', 'Bean to Bar', 'Sobre Nós'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-[#F5F0EB]/60 hover:text-[#F5F0EB] transition-colors">
-                    {item}
+              {EXPLORE_LINKS.map(item => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-sm text-[#F5F0EB]/60 hover:text-[#F5F0EB] transition-colors">
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -41,10 +61,15 @@ export default function Footer() {
           <div>
             <h4 className="font-medium text-sm text-[#F5F0EB] mb-4">Atendimento</h4>
             <ul className="space-y-2">
-              {['Entrega e Frete', 'Trocas e Devoluções', 'Perguntas Frequentes', 'Fale Conosco'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-[#F5F0EB]/60 hover:text-[#F5F0EB] transition-colors">
-                    {item}
+              {SUPPORT_LINKS.map(item => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="text-sm text-[#F5F0EB]/60 hover:text-[#F5F0EB] transition-colors"
+                  >
+                    {item.label}
                   </a>
                 </li>
               ))}
