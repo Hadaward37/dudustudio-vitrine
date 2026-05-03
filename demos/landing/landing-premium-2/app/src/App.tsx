@@ -49,13 +49,23 @@ function App() {
             </div>
 
             <div className="hidden md:flex items-center gap-8">
-              {['Serviços', 'Planos', 'Como Funciona', 'FAQ'].map((item) => (
+              {[
+                { label: 'Serviços',      id: 'servicos'      },
+                { label: 'Planos',        id: 'planos'        },
+                { label: 'Como Funciona', id: 'como-funciona' },
+                { label: 'FAQ',           id: 'faq'           },
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById(item.id);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="text-sm text-[rgba(240,244,255,0.6)] hover:text-[#00D4AA] transition-colors duration-300"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
             </div>

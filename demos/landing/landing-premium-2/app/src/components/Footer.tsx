@@ -51,7 +51,12 @@ export default function Footer() {
                 (link) => (
                   <li key={link}>
                     <a
-                      href="#"
+                      href="#servicos"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.getElementById('servicos');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
                       className="text-sm text-[rgba(240,244,255,0.5)] hover:text-[#00D4AA] transition-colors duration-300"
                     >
                       {link}

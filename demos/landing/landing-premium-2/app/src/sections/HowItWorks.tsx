@@ -57,7 +57,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-32 px-4">
+    <section id="como-funciona" ref={sectionRef} className="relative py-24 md:py-32 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-3 py-1 rounded-full bg-[rgba(245,158,11,0.1)] text-[#F59E0B] text-xs font-semibold uppercase tracking-wider mb-4">

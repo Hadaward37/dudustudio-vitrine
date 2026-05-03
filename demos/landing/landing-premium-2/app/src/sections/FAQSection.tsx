@@ -40,7 +40,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 md:py-32 px-4">
+    <section id="faq" className="relative py-24 md:py-32 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-3 py-1 rounded-full bg-[rgba(255,51,102,0.1)] text-[#ff6b8a] text-xs font-semibold uppercase tracking-wider mb-4">
