@@ -29,6 +29,9 @@ export default function App() {
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
+    // Expose globally so Navigation can use lenis.scrollTo
+    (window as unknown as Record<string, unknown>).lenis = lenis;
+
     lenis.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
@@ -39,6 +42,7 @@ export default function App() {
 
     return () => {
       lenis.destroy();
+      delete (window as unknown as Record<string, unknown>).lenis;
     };
   }, []);
 

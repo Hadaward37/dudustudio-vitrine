@@ -114,12 +114,23 @@ export default function BeforeAfter() {
                 className="absolute inset-0 transition-opacity duration-500"
                 style={{ opacity: i === current ? 1 : 0 }}
               >
-                <img src={t.image} alt={`${t.before} - ${t.after}`} className="w-full h-full object-cover" />
+                {/* Depois — imagem vibrante e colorida */}
+                <img src={t.image} alt={`Depois: ${t.after}`} className="w-full h-full object-cover" />
+                {/* Antes — mesmo ângulo, filtro dessaturado para simular cabelo sem tratamento */}
                 <div
                   className="absolute top-0 bottom-0 left-0 overflow-hidden"
                   style={{ width: `${dividerPos}%` }}
                 >
-                  <img src={t.image} alt="Before" className="h-full object-cover" style={{ width: `${100 / (dividerPos / 100)}%`, maxWidth: 'none' }} />
+                  <img
+                    src={t.image}
+                    alt={`Antes: ${t.before}`}
+                    className="h-full object-cover"
+                    style={{
+                      width: `${100 / (dividerPos / 100)}%`,
+                      maxWidth: 'none',
+                      filter: 'saturate(0.1) brightness(0.8) contrast(0.9)',
+                    }}
+                  />
                   <span className="absolute bottom-4 left-4 bg-black/50 text-white text-xs uppercase px-3 py-1 font-body font-medium">
                     Antes
                   </span>

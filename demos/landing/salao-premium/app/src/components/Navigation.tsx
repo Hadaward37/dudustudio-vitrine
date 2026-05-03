@@ -23,8 +23,12 @@ export default function Navigation() {
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
+    const el = document.querySelector(href) as HTMLElement | null;
+    if (!el) return;
+    const lenis = (window as unknown as Record<string, unknown>).lenis as { scrollTo: (el: HTMLElement, opts: object) => void } | undefined;
+    if (lenis) {
+      lenis.scrollTo(el, { offset: -72 });
+    } else {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
