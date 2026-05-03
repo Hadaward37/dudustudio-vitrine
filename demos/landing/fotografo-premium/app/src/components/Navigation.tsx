@@ -63,7 +63,7 @@ export default function Navigation() {
             </button>
           ))}
           <button
-            onClick={() => scrollTo('cta')}
+            onClick={() => window.open('https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20fotogr%C3%A1fica.', '_blank', 'noopener,noreferrer')}
             className="font-sans text-[12px] tracking-[0.12em] uppercase px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-[#0D0D0D] transition-all duration-300"
           >
             Agendar
@@ -100,7 +100,7 @@ export default function Navigation() {
               </button>
             ))}
             <button
-              onClick={() => scrollTo('cta')}
+              onClick={() => window.open('https://wa.me/5511914969488?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20fotogr%C3%A1fica.', '_blank', 'noopener,noreferrer')}
               className="font-sans text-[12px] tracking-[0.12em] uppercase px-5 py-3 border border-gold text-gold hover:bg-gold hover:text-[#0D0D0D] transition-all duration-300 w-fit"
             >
               Agendar

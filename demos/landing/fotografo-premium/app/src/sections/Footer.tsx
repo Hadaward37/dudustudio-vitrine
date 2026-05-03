@@ -40,20 +40,13 @@ export default function Footer() {
               Social
             </span>
             <div className="flex gap-4">
-              {[
-                { name: 'Instagram', href: 'https://instagram.com/lucasmendes.photo' },
-                { name: 'Behance', href: 'https://behance.net/lucasmendes' },
-                { name: 'Pinterest', href: 'https://pinterest.com/lucasmendes' },
-              ].map(social => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-[11px] tracking-[0.1em] text-[#888888] hover:text-gold transition-colors uppercase"
+              {['Instagram', 'Behance', 'Pinterest'].map(name => (
+                <span
+                  key={name}
+                  className="font-mono text-[11px] tracking-[0.1em] text-[#888888] uppercase"
                 >
-                  {social.name}
-                </a>
+                  {name}
+                </span>
               ))}
             </div>
           </div>

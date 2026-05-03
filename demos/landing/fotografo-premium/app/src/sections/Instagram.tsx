@@ -82,14 +82,9 @@ export default function Instagram() {
         </div>
 
         <div className="text-center">
-          <a
-            href="https://instagram.com/lucasmendes.photo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block font-mono text-[11px] tracking-[0.15em] uppercase px-8 py-3 border border-gold text-gold hover:bg-gold hover:text-[#0D0D0D] transition-all duration-300"
-          >
-            Seguir
-          </a>
+          <span className="inline-block font-mono text-[11px] tracking-[0.15em] uppercase px-8 py-3 border border-gold text-gold">
+            @lucasmendes.photo
+          </span>
         </div>
       </div>
     </section>
