@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4.3%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10.2%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 4.3%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 357 91% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10.2%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 10.2%;
+    --muted-foreground: 0 0% 69%;
+    --accent: 0 0% 10.2%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16.5%;
+    --input: 0 0% 16.5%;
+    --ring: 357 91% 47%;
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-[#0B0B0B] text-white;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-red {
+    background: linear-gradient(135deg, #E50914 0%, #8B0000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
