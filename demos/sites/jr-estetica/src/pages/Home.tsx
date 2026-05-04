@@ -33,24 +33,28 @@ const servicos = [
     title: 'Polimento Técnico',
     desc: 'Remoção de riscos, hologramas e oxidação para restaurar o brilho original da pintura.',
     link: '/servicos',
+    section: 'polimento',
   },
   {
     image: './images/servico-vitrificacao.jpg',
     title: 'Vitrificação',
     desc: 'Proteção cerâmica de alta durabilidade que preserva a pintura por anos.',
     link: '/servicos',
+    section: 'vitrificacao',
   },
   {
     image: './images/servico-higienizacao.jpg',
     title: 'Higienização Interna',
     desc: 'Limpeza profunda de bancos, carpetes, teto e ar-condicionado do veículo.',
     link: '/servicos',
+    section: 'higienizacao',
   },
   {
     image: './images/servico-farois.jpg',
     title: 'Revitalização de Faróis',
     desc: 'Recuperação do brilho e transparência dos faróis para maior segurança noturna.',
     link: '/servicos',
+    section: 'farois',
   },
 ]
 
@@ -184,6 +188,7 @@ export default function Home() {
                     <p className="text-[#B0B0B0] text-sm leading-relaxed mb-4">{servico.desc}</p>
                     <Link
                       to={servico.link}
+                      state={{ section: servico.section }}
                       className="inline-flex items-center gap-1 text-[#E50914] text-sm font-bold uppercase tracking-wider hover:gap-2 transition-all duration-300"
                     >
                       Saiba mais <ArrowRight size={16} />

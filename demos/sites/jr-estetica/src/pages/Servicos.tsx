@@ -1,8 +1,11 @@
-﻿import { Phone, Check, Sparkles, Droplets, Wind, Sun } from 'lucide-react'
+﻿import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { Phone, Check, Sparkles, Droplets, Wind, Sun } from 'lucide-react'
 import ScrollReveal from '../components/ScrollReveal'
 
 const servicosDetalhados = [
   {
+    id: 'polimento',
     icon: Sparkles,
     title: 'Polimento Técnico',
     subtitle: 'Restauração do brilho original',
@@ -29,10 +32,12 @@ const servicosDetalhados = [
       'Proteção UV contra desbotamento',
       'Brilho intenso e espelhado',
     ],
+    id: 'vitrificacao',
     image: './images/servico-vitrificacao.jpg',
     dark: false,
   },
   {
+    id: 'higienizacao',
     icon: Wind,
     title: 'Higienização Interna',
     subtitle: 'Limpeza profunda do interior',
@@ -59,12 +64,26 @@ const servicosDetalhados = [
       'Valorização do veículo',
       'Aplicação de selante protetor',
     ],
+    id: 'farois',
     image: './images/servico-farois.jpg',
     dark: false,
   },
 ]
 
 export default function Servicos() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const section = (location.state as { section?: string } | null)?.section
+    if (section) {
+      // pequeno delay para garantir que o DOM já renderizou
+      setTimeout(() => {
+        const el = document.getElementById(section)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    }
+  }, [location.state])
+
   return (
     <div>
       {/* Hero */}
@@ -99,6 +118,7 @@ export default function Servicos() {
       {servicosDetalhados.map((servico, i) => (
         <section
           key={i}
+          id={servico.id}
           className={`py-24 ${servico.dark ? 'bg-[#0B0B0B]' : 'bg-[#F0F0F0]'}`}
         >
           <div className="max-w-[1280px] mx-auto px-6 lg:px-12">

@@ -11,10 +11,10 @@ const quickLinks = [
 ]
 
 const serviceLinks = [
-  { path: '/servicos', label: 'Polimento Técnico' },
-  { path: '/servicos', label: 'Vitrificação' },
-  { path: '/servicos', label: 'Higienização Interna' },
-  { path: '/servicos', label: 'Revitalização de Faróis' },
+  { path: '/servicos', label: 'Polimento Técnico',       section: 'polimento'    },
+  { path: '/servicos', label: 'Vitrificação',            section: 'vitrificacao' },
+  { path: '/servicos', label: 'Higienização Interna',    section: 'higienizacao' },
+  { path: '/servicos', label: 'Revitalização de Faróis', section: 'farois'       },
 ]
 
 export default function Footer() {
@@ -82,6 +82,7 @@ export default function Footer() {
                 <li key={i}>
                   <Link
                     to={link.path}
+                    state={{ section: link.section }}
                     className="text-[#B0B0B0] text-sm hover:text-[#E50914] transition-colors duration-300"
                   >
                     {link.label}
