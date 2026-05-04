@@ -102,17 +102,28 @@ export default function Localizacao() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <div className="rounded-lg overflow-hidden border border-[#2A2A2A] h-full min-h-[400px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.389!2d-46.525!3d-23.539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMyJzIwLjQiUyA0NsKwMzEnMzAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, minHeight: '400px' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização JR Estética Automotiva"
-                />
+              <div className="flex flex-col gap-3 h-full">
+                <div className="rounded-lg overflow-hidden border border-[#2A2A2A] flex-1 min-h-[400px]">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.389!2d-46.525!3d-23.539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMyJzIwLjQiUyA0NsKwMzEnMzAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, minHeight: '400px' }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Localização JR Estética Automotiva"
+                  />
+                </div>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Rua+Paes+Landim,+263,+Itaquera,+Vila+Carmosina,+São+Paulo,+SP"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full py-4 bg-[#E50914] hover:bg-[#c00000] text-white font-bold uppercase tracking-wider text-sm rounded-lg transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-[#E50914]/20"
+                >
+                  <Navigation size={18} />
+                  Abrir no GPS — Como Chegar
+                </a>
               </div>
             </ScrollReveal>
           </div>
